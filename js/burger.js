@@ -1,5 +1,5 @@
 const body = document.querySelector('body');
-let headerBurger = $('.header__burger');
+let headerBurger = document.querySelector('.header__burger');
 let numOffClicks = 0;
 
 function disable() {
@@ -17,7 +17,7 @@ function enable() {
     body.removeAttribute('data-position');
 }
 
-headerBurger.on("click", function () {
+headerBurger.addEventListener("click", function () {
     numOffClicks++;
     if (numOffClicks % 2 !== 0) {
         document.querySelector('.header__burger').classList.add('active');

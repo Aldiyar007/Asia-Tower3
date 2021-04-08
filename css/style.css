@@ -1089,6 +1089,11 @@ li.about::before {
     margin-left: -40px;
   }
 
+  /* Intro */
+  .intro {
+    background-attachment:unset;
+  }
+
   /* Map */
   .map {
     margin-left: 0;

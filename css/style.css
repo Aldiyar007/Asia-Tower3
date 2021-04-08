@@ -719,6 +719,9 @@ li a.footer__link::before {
 }
 
 /* Contact Page */
+.contact {
+  overflow: hidden;
+}
 .contact__body {
   display: flex;
   flex-direction: column;

@@ -163,12 +163,18 @@ header.not-opacity {
 
 /* Intro */
 .intro {
-  background: url(../img/desc.jpeg) center no-repeat;
+  /* background: url(../img/desc.jpeg) center no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: fixed; */
   width: 100%;
-  height: 95vh;
   position: relative;
+}
+.intro video {
+  width: 100000000000%;
+}
+.intro__img {
+  width: 100%;
+  /* height: 920px; */
 }
 .intro__body {
   display: flex;
@@ -192,9 +198,10 @@ header.not-opacity {
 
 /* Desc */
 .desc {
+  width: 100%;
   background-color: #060866;
   height: auto;
-  padding: 10px 0;
+  /* padding: 10px 0; */
 }
 .desc__body {
   display: flex;
@@ -1073,11 +1080,6 @@ li.about::before {
     font-size: 18px;
     width: 400px;
     display: flex;
-  }
-
-  /* Intro */
-  .intro {
-    background-attachment:unset;
   }
 
   /* Map */

@@ -1075,6 +1075,11 @@ li.about::before {
     display: flex;
   }
 
+  /* Intro */
+  .intro {
+    background-attachment:unset;
+  }
+
   /* Map */
   .map {
     width: 400px;
@@ -1087,11 +1092,6 @@ li.about::before {
   .slider .slick-arrow {
     margin-right: -40px;
     margin-left: -40px;
-  }
-
-  /* Intro */
-  .intro {
-    background-attachment:unset;
   }
 
   /* Map */

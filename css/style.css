@@ -172,7 +172,7 @@ header.not-opacity {
   border-color: transparent;
   border-radius: 50%;
   background-color: #629460;
-  z-index: 1;
+  z-index: 10;
 }
 
 .back-to-top:hover,
@@ -237,7 +237,6 @@ header.not-opacity {
   width: 100%;
   background-color: #060866;
   height: auto;
-  /* padding: 10px 0; */
 }
 .desc__body {
   display: flex;

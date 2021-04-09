@@ -226,14 +226,12 @@ header.not-opacity {
   top: 50%;
   z-index: 5;
   line-height: 1.1;
-  margin: auto 0;
-}
-.intro__title span {
- margin: 0 auto;
+  margin: auto;
 }
 
 /* Desc */
 .desc {
+  margin-top: -5px;
   width: 100%;
   background-color: #060866;
   height: auto;

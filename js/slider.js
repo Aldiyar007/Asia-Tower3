@@ -70,50 +70,50 @@ $(document).ready(function () {
                 }
             }
         ]
-    }),
-        $('.slider--two').slick({
-            arrows: true,
-            dots: true,
-            slidesToShow: 3,
-            autoplay: false,
-            adaptiveHeight: true,
-            slidesToScroll: 3,
-            autoplaySpeed: 2000,
-            draggable: false,
-            swipe: true,
-            speed: 800,
-            waitForAnimate: true,
-            responsive: [
-                {
-                    breakpoint: 1706,
-                    settings: {
-                        appendArrows: $('.slider-arrow')
-                    }
-                },
-                {
-                    breakpoint: 1020,
-                    settings: {
-                        arrows: true,
-                        slidesToScroll: 2,
-                        appendArrows: $('.slider-arrow'),
-                        slidesToShow: 2
-                    }
-                },
-                {
-                    breakpoint: 662,
-                    settings: {
-                        slidesToScroll: 1,
-                        slidesToShow: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        slidesToScroll: 1,
-                        slidesToShow: 1,
-                        appendArrows: $('.slider-arrow')
-                    }
-                }
-            ]
-        });
+    });
+    // $('.slider--two').slick({
+    //     arrows: true,
+    //     dots: true,
+    //     slidesToShow: 3,
+    //     autoplay: false,
+    //     adaptiveHeight: true,
+    //     slidesToScroll: 3,
+    //     autoplaySpeed: 2000,
+    //     draggable: false,
+    //     swipe: true,
+    //     speed: 800,
+    //     waitForAnimate: true,
+    //     responsive: [
+    //         {
+    //             breakpoint: 1706,
+    //             settings: {
+    //                 appendArrows: $('.slider-arrow')
+    //             }
+    //         },
+    //         {
+    //             breakpoint: 1020,
+    //             settings: {
+    //                 arrows: true,
+    //                 slidesToScroll: 2,
+    //                 appendArrows: $('.slider-arrow'),
+    //                 slidesToShow: 2
+    //             }
+    //         },
+    //         {
+    //             breakpoint: 662,
+    //             settings: {
+    //                 slidesToScroll: 1,
+    //                 slidesToShow: 1
+    //             }
+    //         },
+    //         {
+    //             breakpoint: 580,
+    //             settings: {
+    //                 slidesToScroll: 1,
+    //                 slidesToShow: 1,
+    //                 appendArrows: $('.slider-arrow')
+    //             }
+    //         }
+    //     ]
+    // });
 });

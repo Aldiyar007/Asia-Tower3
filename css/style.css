@@ -421,12 +421,14 @@ h3.slider__title {
 	background: url('../img/sl-arrow_l.svg') 0 0 / 100% no-repeat;
 }
 .slider-arrows .slick-next{
-	right: -30px;
+  margin: auto 20px auto auto;
+	/* right: -30px;*/
+  float: right;
 	background: url('../img/sl-arrow_r.svg') 0 0 / 100% no-repeat;
 }
 
 /* Slider Two */
-.slider__title--two {
+/* .slider__title--two {
   margin-top: 45px;
 }
 .slider--two {
@@ -515,7 +517,7 @@ h3.slider__title {
 .slider-arrow .slick-next{
 	right: -30px;
 	background: url('../img/sl-arrow_r.svg') 0 0 / 100% no-repeat;
-}
+} */
 
 /* Form */
 .dws-container {

@@ -310,6 +310,14 @@ header.not-opacity {
   position: relative;
   display: flex;
   justify-content: center;
+  display: none;
+  visibility: hidden;
+  transition: opacity 1s ease;
+  -webkit-transition: opacity 1s ease;
+}
+.slider.slick-initialized {
+  visibility: visible;
+  display: flex; 
 }
 .slider__title {
   display: flex;

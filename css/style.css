@@ -774,53 +774,83 @@ li a.footer__link::before {
 .contact {
   overflow: hidden;
 }
+.contact__content {
+  flex: 0 0 100%;
+  display: flex;
+}
+.contact__container {
+  max-width: 1360px; 
+  padding: 0px 20px;
+  display: flex;
+  margin: 0px auto;
+  align-items: center;
+  /* background-color: #000; */
+}
 .contact__body {
   display: flex;
-  flex-direction: column;
-  width: 800px;
+  width: 50%;
+  flex-wrap: wrap;
+  padding: 0;
 }
 .contact__item {
-  margin-top: 15px;
   font-size: 15px;
   width: 400px;
+  max-width: 550px;
 }
 .contact__title {
-  width: 400px;
-  margin-bottom: 5px;
+  max-width: 400px;
+  margin: 5px 0 5px 0;
   color: #ec1a1a;
+  font-size: 20px;
   font-weight: normal;
 }
 .contact__text {
-  width: 300px;
+  max-width: 300px;
+  font-size: 15px;
 }
 .contact__text p {
   margin-bottom: 9px;
 }
 .contact__text address {
-  margin-bottom: 9px;
-  font-weight: normal;
-  font-family: Arial, "Times New Roman", sans-serif;
-}
-.contact__text p:last-child {
-  margin: 0px;
+  margin-bottom: 9px; 
 }
 .contact__text p a {
   color: #000;
 }
 .contact__img {
   height: 25px;
+  margin-bottom: 9px;
   margin-left: 5px;
 }
-
-/* Map */
 .map {
-	margin-left: 500px;
-	position: relative;
-	display: flex;
-	bottom: 340px;
-	width: 490px;
-	height: 376px;
-	margin-top: 30px;
+  max-width: 100%;
+}
+
+@media (min-width: 1030px) {  
+  .contact {
+    display: flex;
+    margin-top: 20px;
+  }
+  .contact__body {
+    padding: 0px 20px 50px 50px;
+    width: 50%;
+  }
+  .map {
+    padding: 0px 0px 22.5%;
+    position: relative;
+    flex: 0 0 calc(((100vw - 40px) * 0.6) + 20px);
+    max-width: 555px;
+    height: 458px;
+    transform: translateX(-100%);
+  }
+  .map img {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
 }
 
 /* About */
@@ -829,7 +859,7 @@ li a.footer__link::before {
 }
 h2.about {
 	margin-top: 10px;
-	width: 1060px;
+	max-width: 1060px;
 	text-indent: 25px;
   color: #fff;
 }
@@ -840,8 +870,6 @@ a.about {
 a.about:hover {
   color: red;
 }
-
-
 li.about::before {
 	content: "✓";
 	margin-right: 15px;
@@ -887,23 +915,21 @@ li.about::before {
   }
 }
 
-@media (max-width: 1015px) { 
-  /* Footer */
-  footer.footer-contact {
-    margin-top: 100px;
-  }
-
+@media (max-width: 1029px) { 
   /* Contact */
   .contact__body {
-    justify-content: center;
+    margin: 0 auto; 
   }
-
-  /* Map */
+  .contact__item {
+    margin: auto;
+    text-align: center;
+  }
+  .contact__text {
+    margin: auto;
+  }
   .map {
-	  display: block;
-	  margin-top: 400px;
-	  margin-left: 10px;
-	}
+    text-align: center;
+  }
 }
 
 @media (max-device-width: 767px) {
@@ -1027,9 +1053,6 @@ li.about::before {
   }
 
   /* Intro */
-  .intro {
-    background-position-x: 36%;
-  }
   .intro__title {
     font-size: 25px;
   }
@@ -1037,9 +1060,6 @@ li.about::before {
   /* About */
   .text h2 {
     font-size: 11px;
-    max-width: 640px;
-    padding-left: 0;
-    padding-right: 0;
   }
 
   /* Slider */
@@ -1060,9 +1080,6 @@ li.about::before {
   /* About */
   .text h2 {
     font-size: 10px;
-    max-width: 550px;
-    padding-left: 0;
-    padding-right: 0;
   }
 }
 
@@ -1113,7 +1130,6 @@ li.about::before {
   }
   .text h2 {
     font-size: 9px;
-    max-width: 320px;
   }
 }
 
@@ -1124,12 +1140,6 @@ li.about::before {
     width: 400px;
     display: flex;
   }
-
-  /* Map */
-  .map {
-    width: 400px;
-    height: 300px;
-  }
 }
 
 @media (max-width: 465px) {  
@@ -1139,11 +1149,31 @@ li.about::before {
     margin-left: -40px;
   }
 
-  /* Map */
+  /* Contact */
+  .contact__body {
+    width: 350px;
+    position: relative;
+  }
+  .contact__item {
+    text-align: center;
+  }
+  .contact__title {
+    font-size: calc(17px + (20 - 17) * ((100vw - 280px) / (465 - 280)));
+  }
+
+  .contact__text {
+    margin: 0px auto;
+    font-size: calc(10px + (15 - 10) * ((100vw - 280px) / (465 - 280)));
+  }
+
   .map {
     margin-left: 0;
     width: 320px;
-    height: 250px;
+    height: 360px;
+  }
+  .map img {
+    position: relative;
+    right: 50px;
   }
 }
 
@@ -1166,6 +1196,21 @@ li.about::before {
   .slider .slick-arrow {
     margin-right: -50px;
     margin-left: -50px;
+  }
+
+  /* Contact */
+  .contact__body {
+    width: 100%;
+    margin: auto;
+  }
+  .contact__container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .contact__item {
+    width: 100%;
+    max-width: 200px;
+    margin: auto;
   }
 }
   
@@ -1246,8 +1291,12 @@ li.about::before {
 
   /* Map */
   .map {
-      width: 300px;
-      height: 200px;
+      width: 320px;
+      height: 360px;
+  }
+
+  .map img {
+    right: 100px;
   }
 
   /* Slider */

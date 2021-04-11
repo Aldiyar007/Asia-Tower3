@@ -12,7 +12,6 @@ a, a:visited{text-decoration: none;}
 a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
-/* h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 700;} */
 
 body {
   position: relative;
@@ -309,6 +308,16 @@ header.not-opacity {
   transition: opacity 1s ease;
   -webkit-transition: opacity 1s ease;
 }
+.text__loading {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 20px;
+}
+.slider.slick-initialized .text__loading  {
+  display: none; 
+}
 .slider.slick-initialized {
   visibility: visible;
   display: flex; 
@@ -424,102 +433,9 @@ h3.slider__title {
 }
 .slider-arrows .slick-next{
   margin: auto 20px auto auto;
-	/* right: -30px;*/
   float: right;
 	background: url('../img/sl-arrow_r.svg') 0 0 / 100% no-repeat;
 }
-
-/* Slider Two */
-/* .slider__title--two {
-  margin-top: 45px;
-}
-.slider--two {
-  background-color: #363434;
-  height: auto;
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-.slick-slider{
-	min-width: 0;
-}
-.slick-list {
-  max-width: 1680px;
-	overflow: hidden;
-}
-.slick-track{
-	display: flex;
-	align-items: flex-start;
-}
-.slick-arrow{
-  outline: none;
-}
-.slick-dots{
-  outline: none;
-}
-.slider--two .slick-arrow{
-	position: absolute;
-  top: 60%;
-	margin: -30px 50px 0px;
-	z-index: 10;
-	font-size: 0;
-	width: 30px;
-	height: 60px;
-}
-.slider--two .slick-arrow.slick-prev{
-	left: 50px;
-	background: url('../img/sl-arrow_l.svg') 0 0 / 100% no-repeat;
-}
-.slider--two .slick-arrow.slick-next{
-	right: 50px;
-	background: url('../img/sl-arrow_r.svg') 0 0 / 100% no-repeat;
-}
-.slider--two .slick-arrow.slick-disabled{
-	opacity: 0.2;
-}
-.slider--two .slick-dots{
-	display: flex;
-  position: absolute;
-  top: 100%;
-	align-items: center;
-	justify-content: center;
-}
-.slider--two .slick-dots li{
-	margin: 0px 10px;
-}
-.slider--two .slick-dots button{
-	font-size: 0;
-	width: 10px;
-	height: 10px;
-	background-color: #fff;
-	border-radius: 50%;
-}
-.slider--two .slick-dots li.slick-active button{
-	background-color: transparent;
-	border: 1px solid #fff;
-}
-.slider__item {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  position: relative;
-}
-.slider-arrow .slick-arrow {
-	z-index: 10;
-	font-size: 0;
-  position: relative;
-  top: 40px;
-	width: 30px;
-	height: 60px;
-}
-.slider-arrow .slick-prev{
-	left: 20px;
-	background: url('../img/sl-arrow_l.svg') 0 0 / 100% no-repeat;
-}
-.slider-arrow .slick-next{
-	right: -30px;
-	background: url('../img/sl-arrow_r.svg') 0 0 / 100% no-repeat;
-} */
 
 /* Form */
 .dws-container {
@@ -618,10 +534,6 @@ h3.slider__title {
 #checkbox._error {
   -webkit-box-shadow: 0 0 10px red;
   box-shadow: 0 0 10px red;
-}
-
-body {
-  position: relative;
 }
 
 form::after {
@@ -860,6 +772,7 @@ li a.footer__link::before {
 h2.about {
 	margin-top: 10px;
 	max-width: 1060px;
+  font-size: calc(9px + (18 - 9) * ((100vw - 280px) / (1280 - 280)));
 	text-indent: 25px;
   color: #fff;
 }
@@ -902,16 +815,6 @@ li.about::before {
   /* Footer */
   .footer__list li a {
     display: none;
-  }
-}
-
-@media (max-width: 1070px) {  
-  /* About */
-  .text h2 {
-    font-size: 14px;
-    max-width: 750px;
-    padding-left: 0;
-    padding-right: 0;
   }
 }
 
@@ -1057,29 +960,12 @@ li.about::before {
     font-size: 25px;
   }
 
-  /* About */
-  .text h2 {
-    font-size: 11px;
-  }
-
   /* Slider */
   .slider__text {
     width: 290px;
     font-size: 12px;
     padding-left: 10px;
     padding-right: 1px;
-  }
-}
-
-@media (max-width: 650px) {  
-  /* Intro */
-  .intro {
-    background-position-x: 40%;
-  }
-
-  /* About */
-  .text h2 {
-    font-size: 10px;
   }
 }
 
@@ -1122,14 +1008,6 @@ li.about::before {
   }
   .form-box {
     height: 500px;
-  }
-
-  /* About */
-  .text {
-    padding: 50px 0 -50px;
-  }
-  .text h2 {
-    font-size: 9px;
   }
 }
 
@@ -1196,6 +1074,10 @@ li.about::before {
   .slider .slick-arrow {
     margin-right: -50px;
     margin-left: -50px;
+  } 
+
+  .text__loading {
+    font-size: 10px;
   }
 
   /* Contact */
@@ -1304,12 +1186,8 @@ li.about::before {
     width: auto;
   }
 
-  /* About */
-  .text {
-    padding: 50px 0 -50px;
-  }
-  .text h2 {
-    font-size: 9px;
-    max-width: 250px;
+  .slider-arrows .slick-arrow {
+    height: 50px;
+    width: 20px;
   }
 }

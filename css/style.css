@@ -304,6 +304,7 @@ header.not-opacity {
   display: flex;
   justify-content: center;
   display: none;
+  overflow: hidden;
   visibility: hidden;
   transition: opacity 1s ease;
   -webkit-transition: opacity 1s ease;
@@ -313,10 +314,9 @@ header.not-opacity {
   display: flex;
   justify-content: center;
   position: relative;
-  top: 20px;
-}
-.slider.slick-initialized .text__loading  {
-  display: none; 
+  top: 35px;
+  overflow: hidden;
+  align-items: center;
 }
 .slider.slick-initialized {
   visibility: visible;

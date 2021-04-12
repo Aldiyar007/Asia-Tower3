@@ -301,7 +301,6 @@ header.not-opacity {
   background-color: #363434;
   height: auto;
   position: relative;
-  display: flex;
   justify-content: center;
   display: none;
   overflow: hidden;
@@ -314,9 +313,14 @@ header.not-opacity {
   display: flex;
   justify-content: center;
   position: relative;
+  visibility: visible;
   top: 35px;
+  height: 50px;
+  width: 100%;
   overflow: hidden;
   align-items: center;
+  transition: opacity 1s ease;
+  -webkit-transition: opacity 1s ease;
 }
 .slider.slick-initialized {
   visibility: visible;

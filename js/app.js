@@ -1,10 +1,9 @@
-let textLoading = document.querySelector('.text__loading');
-let slider = document.querySelector('.slider');
+let textLoading = $('.text__loading');
 
-if (!slider.classList.contains('slick-initialized')) {
-    slider.classList.add('finish');
+if (!$('.slider').slick) {
+    textLoading.text('У вас слабый интернет, слайдер загружается');
 }
 
-if (slider.classList.contains('finish')) {
-    textLoading.innerHTML = "Ваш интернет слабый, слайдер загружается, подождите!";
-}
+// if ($('.slider').slick) {
+//     textLoading.text('');
+// }

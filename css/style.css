@@ -33,6 +33,24 @@ body.lock {
   padding: 0px 10px;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.wrapper.main {
+  background: #363434;
+}
+.wrapper.about {
+  background-color: #027b94;
+}
+.content {
+  padding: 80px 0 0 0;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
 /* Header */
 header {
   position: fixed;
@@ -139,25 +157,6 @@ header.active__scroll {
 }
 header.not-opacity {
   opacity: 1;
-}
-
-/* Content */
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-.wrapper.main {
-  background: #363434;
-}
-.wrapper.about {
-  background-color: #027b94;
-}
-.content {
-  padding: 80px 0 0 0;
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
 }
 
 /* Back to top */
@@ -303,7 +302,7 @@ header.not-opacity {
   position: relative;
   justify-content: center;
   display: none;
-  overflow: hidden;
+  margin-top: -35px;
   visibility: hidden;
   transition: opacity 1s ease;
   -webkit-transition: opacity 1s ease;
@@ -313,7 +312,6 @@ header.not-opacity {
   display: flex;
   justify-content: center;
   position: relative;
-  visibility: visible;
   top: 35px;
   height: 50px;
   width: 100%;
@@ -700,7 +698,6 @@ li a.footer__link::before {
   display: flex;
   margin: 0px auto;
   align-items: center;
-  /* background-color: #000; */
 }
 .contact__body {
   display: flex;
@@ -742,6 +739,29 @@ li a.footer__link::before {
   max-width: 100%;
 }
 
+/* About */
+.text {
+  padding: 100px 0 50px;
+}
+h2.about {
+	margin-top: 10px;
+	max-width: 1060px;
+  font-size: calc(9px + (18 - 9) * ((100vw - 280px) / (1280 - 280)));
+	text-indent: 25px;
+  color: #fff;
+}
+a.about {
+  color: #fff;
+  transition: .8s;
+}
+a.about:hover {
+  color: red;
+}
+li.about::before {
+	content: "✓";
+	margin-right: 15px;
+}
+
 @media (min-width: 1030px) {  
   .contact {
     display: flex;
@@ -767,29 +787,6 @@ li a.footer__link::before {
     left: 0;
     object-fit: cover;
   }
-}
-
-/* About */
-.text {
-  padding: 100px 0 50px;
-}
-h2.about {
-	margin-top: 10px;
-	max-width: 1060px;
-  font-size: calc(9px + (18 - 9) * ((100vw - 280px) / (1280 - 280)));
-	text-indent: 25px;
-  color: #fff;
-}
-a.about {
-  color: #fff;
-  transition: .8s;
-}
-a.about:hover {
-  color: red;
-}
-li.about::before {
-	content: "✓";
-	margin-right: 15px;
 }
 
 /* Media */

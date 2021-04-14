@@ -261,6 +261,7 @@ header.not-opacity {
 }
 .info__body {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 .info__item {
@@ -282,14 +283,12 @@ header.not-opacity {
 }
 .info__img {
   width: 400px;
-  margin-top: 20px;
   height: 300px;
   cursor: pointer;
   transition: .9s;
   display: flex;
+  margin: 20px auto;
   justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
 }
 .info__img:hover {
   transform: scale(1.1);
@@ -788,14 +787,9 @@ li.about::before {
   .info__item {
     padding: 0px 30px;
   }
-  .info__body {
-    flex-wrap: wrap;
-  }
   .info__img {
     width: 300px;
-    margin-top: 20px;
     height: 200px;
-    margin-bottom: 20px;
   }
 
   /* Footer */

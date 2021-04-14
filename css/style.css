@@ -243,7 +243,7 @@ header.not-opacity {
 }
 .desc__text {
   text-align: center;
-  max-width: 550px;
+  max-width: 550px; 
   color: #fff;
   font-size: calc(11px + (20 - 11) * ((100vw - 280px) / (1280 - 280)));
   line-height: 1.1;
@@ -408,19 +408,6 @@ h3.slider__title {
   position: absolute;
   background: transparent;
 }
-.slider__text {
-  position: absolute;
-  background: transparent;
-  display: flex;
-  justify-content: center;
-  color: #fff;
-  width: auto;
-  width: 320px;
-  padding: 18px 10px 0;
-  font-size: 13.5px;
-  font-weight: normal;
-  overflow: hidden;
-}
 .slider-arrows .slick-arrow {
 	z-index: 10;
 	font-size: 0;
@@ -464,12 +451,13 @@ h3.slider__title {
 }
 
 .toggle-form {
-  display: block;
+  display: flex;
   background: #8a36a5;
   color: #fff;
-  text-align: center;
   cursor: pointer;
   margin: 0 auto;
+  align-items: center;
+  justify-content: center;
   font-size: 24px;
   padding: 10px 0;
   border-radius: 8px 8px 0 0;
@@ -590,8 +578,10 @@ label p {
 
 .toggle-form i {
   position: absolute;
-  top: 7px;
+  top: 4px;
   left: 40px;
+  display: flex;
+  align-items: center;
   font-size: 40px;
 }
 
@@ -950,24 +940,6 @@ li.about::before {
     transform: scaleX(0);
     width: 100%;
   }
-
-  /* Slider */
-  .slider__text {
-    width: 290px;
-    font-size: 12px;
-    padding-left: 10px;
-    padding-right: 1px;
-  }
-}
-
-@media (max-width: 600px) {  
-  /* Slider */
-  .slider__text {
-    width: 260px;
-    padding-left: 8px;
-    padding-right: 7px;
-    font-size: 11px;
-  }
 }
 
 @media (max-width: 585px) {
@@ -1000,15 +972,6 @@ li.about::before {
   .form-box {
     height: 500px;
   }
-}
-
-@media (max-width: 550px) {  
-  /* Desc */
-  /* .desc__text {
-    font-size: 18px;
-    width: 400px;
-    display: flex;
-  } */
 }
 
 @media (max-width: 465px) {  
@@ -1047,12 +1010,6 @@ li.about::before {
 }
 
 @media (max-width: 400px) { 
-  /* Desc */
-  /* .desc__text {
-    font-size: 15px;
-    width: 350px;
-  } */
-
   /* Slider */
   .slider__item {
     height: 150px;  
@@ -1113,12 +1070,6 @@ li.about::before {
     top: -5px;
   }
 
-  /* Desc */
-  /* .desc__text {
-    font-size: 11px;
-    width: 300px;
-  } */
-
   /* Info */
   .info__img {
     height: 150px;
@@ -1136,11 +1087,6 @@ li.about::before {
   h3.slider__title {
     font-size: 12px;
   }
-  .slider__text {
-    margin-top: -5px;
-    width: 200px;
-    font-size: 8px;
-  }
 
   /* Footer */
   .footer-contact {
@@ -1154,8 +1100,8 @@ li.about::before {
 
   /* Map */
   .map {
-      width: 320px;
-      height: 360px;
+    width: 320px;
+    height: 360px;
   }
 
   .map img {

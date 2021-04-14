@@ -11,6 +11,8 @@
     <meta name="keywords" content="бизнес центр, Asia Tower" />
     <meta name="Address" content="г. Алматы, пр. Аль-Фараби, дом 17/1, ПФЦ «Нурлы-Тау» блок 5Б, 10 этаж, офис №16" />
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="img/header.jpg">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Asia Tower | Главная</title>
 </head>
 
@@ -49,12 +51,6 @@
         <div class="content">
 
             <div class="intro">
-                <!-- <video src="img/intro/intro.mp4" style="width: 100%;" alt="видео самого бизнес центра"
-                    class="intro__img" autoplay muted data-object-fit="cover" loop>
-                    <p>Ваш браузер не поддерживает HTML5 видео. Используйте <a href="img/intro.ogg">эту ссылку на
-                            видео</a>
-                        для доступа.</p>
-                </video> -->
                 <div data-poster-url="" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="intro__img">
                     <video autoplay="" loop="" style="width: 100%; background-image:url(/img/intro/intro.mp4)" muted=""
                         playsinline="" data-wf-ignore="true" data-object-fit="cover">
@@ -128,7 +124,7 @@
 
             <a href="#" class="back-to-top"></a>
 
-            <wrapper>
+            <div>
                 <div class="dws-wrapper">
                     <input type="checkbox" name="toggle" id="dws-form" class="toggle-form" />
                     <div class="dws-container">
@@ -146,8 +142,7 @@
                             </div>
                             <div class="input-box">
                                 <label class="label-text">Номер телефона:</label>
-                                <input class="user-input req" type="number" name="phone" id="phone" maxlength="11"
-                                    minlength="11" />
+                                <input class="user-input req" type="number" name="phone" id="phone" />
                             </div>
                             <div class="input-box">
                                 <label class="label-text">Сообщение:</label>
@@ -163,8 +158,9 @@
                             <input type="submit" value="Отправить" class="button" />
                         </form>
                     </div>
-            </wrapper>
+                </div>
 
+            </div> <!-- /.form -->
         </div> <!-- /.content -->
         <footer>
             <div class="footer__body">
@@ -191,7 +187,7 @@
                 </ul>
             </div>
         </footer>
-    </div>
+    </div> <!-- /.wrapper -->
 
     <!-- Scripts -->
     <script src="js/burger.js"></script>

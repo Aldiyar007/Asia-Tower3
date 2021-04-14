@@ -3,7 +3,7 @@
 *,*:before,*:after{ -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 :focus,:active{outline: none;} a:focus,a:active{outline: none;}
 nav,footer,header,aside{display: block;}
-html,body{ height: 100%; width: 100%; font-size: 100%; line-height: 1; font-size: 14px; -ms-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-family: Arial, "Times New Roman", sans-serif; }
+html,body{ height: 100%; width: 100%; font-size: 100%; line-height: 1; font-size: 14px; -ms-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-family: Arial, "Times New Roman", sans-serif; font-display: block;}
 input,button,textarea{font-family:inherit;}
 input::-ms-clear{display: none;} 
 button{cursor: pointer;}
@@ -141,6 +141,7 @@ ul.header__list li .active-page{
 .header__logo h1 {
   padding: 40px 0 0 10px;
   font-family: "Roboto", sans-serif;
+  font-display: block;
   color: white;
   float: left;
   font-size: 30px;
@@ -620,9 +621,6 @@ footer {
   padding: 50px 0;
   position: relative;
 }
-footer.footer-contact {
-  margin-top: -130px;
-}
 .footer__list li a {
   color: #fff;
   -webkit-transition: 0.9s;
@@ -636,19 +634,16 @@ footer.footer-contact {
   display: flex;
   flex-direction: column;
 }
-.footer__list li.rules a {
-  text-transform: none;
-  display: block;
-  margin: 0 auto;
-} 
 .rules a{
   flex-direction: column;
   transition: .6s;
   color: #fff;
+  display: flex;
+  width: 250px;
+  margin: 0 auto;
   text-align: center;
   justify-content: center;
-  position: absolute;
-  top: 50%;
+  align-items: center;
   transform: translateY(-50%);
 }
 footer a:hover {
@@ -656,9 +651,6 @@ footer a:hover {
 }
 footer li {
   padding-bottom: 5px;
-}
-footer li:last-child {
-  padding: 0;
 }
 .footer__list li.rules a:hover {
   color: red;
@@ -737,6 +729,7 @@ h2.about {
 	max-width: 1060px;
   font-size: calc(9px + (18 - 9) * ((100vw - 280px) / (1280 - 280)));
 	text-indent: 25px;
+  width: 100%;
   color: #fff;
 }
 a.about {
@@ -745,6 +738,9 @@ a.about {
 }
 a.about:hover {
   color: red;
+}
+li.about  {
+  font-weight: normal;
 }
 li.about::before {
 	content: "✓";
@@ -793,9 +789,9 @@ li.about::before {
   }
 
   /* Footer */
-  .footer__list li a {
+  /* .footer__list li a {
     display: none;
-  }
+  } */
 }
 
 @media (max-width: 1029px) { 

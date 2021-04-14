@@ -787,9 +787,9 @@ li.about::before {
   }
 
   /* Footer */
-  /* .footer__list li a {
+  .footer__list li a {
     display: none;
-  } */
+  }
 }
 
 @media (max-width: 1029px) { 

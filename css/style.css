@@ -761,7 +761,7 @@ li.about::before {
     flex: 0 0 calc(((100vw - 40px) * 0.6) + 20px);
     max-width: 555px;
     height: 458px;
-    transform: translateX(-100%);
+    transform: translateX(-120%);
   }
   .map img {
     position: absolute;

@@ -429,7 +429,7 @@ h3.slider__title {
   position: fixed;
   bottom: 0;
   right: 0%;
-  z-index: 999;
+  z-index: 2;
   -webkit-transform: translateY(515px);
   transform: translateY(515px); 
   width: 350px;

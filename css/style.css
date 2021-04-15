@@ -744,6 +744,7 @@ a.about {
 .rules__title {
   margin-bottom: 15px;
   font-size: 24px;
+  text-transform: uppercase;
   margin-top: 15px;
 }
 p.rules {
@@ -753,6 +754,14 @@ p.rules {
 
 p.rules a {
   color: blue;
+}
+
+/* Private Police */
+.item__title {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 /* Media */

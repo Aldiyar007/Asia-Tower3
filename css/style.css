@@ -553,7 +553,7 @@ label input[type="checkbox"] {
   display: flex;
 }
 
-label p {
+label span {
   position: relative;
   left: 20px;
   bottom: 15px;

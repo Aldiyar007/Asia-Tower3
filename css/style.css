@@ -634,7 +634,7 @@ footer {
   display: flex;
   flex-direction: column;
 }
-.rules a{
+.footer__rules a{
   flex-direction: column;
   transition: .6s;
   display: flex;
@@ -734,6 +734,25 @@ li.about::before {
 }
 a.about {
   transition: .8s;
+}
+
+/* Rules */
+
+.rules-box {
+  max-width: 1100px;
+}
+.rules__title {
+  margin-bottom: 15px;
+  font-size: 24px;
+  margin-top: 15px;
+}
+p.rules {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+p.rules a {
+  color: blue;
 }
 
 /* Media */
@@ -1016,6 +1035,14 @@ a.about {
     width: 100%;
     max-width: 200px;
     margin: auto;
+  } 
+
+  /* Rules */
+  .rules__title {
+    font-size: calc(16px + (24 - 18) * ((100vw - 280px) / (400 - 280)));
+  }
+  p.rules {
+    font-size: calc(13px + (15 - 10) * ((100vw - 280px) / (400 - 280)));
   }
 }
   

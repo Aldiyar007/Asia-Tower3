@@ -441,8 +441,8 @@ h3.slider__title {
 }
 
 .dws-container:hover {
-  -webkit-transform: translateY(500px);
-  transform: translateY(500px); 
+  -webkit-transform: translateY(515px);
+  transform: translateY(515px); 
 }
 
 .toggle-form:checked ~ .dws-container {

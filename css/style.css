@@ -433,8 +433,8 @@ h3.slider__title {
   bottom: 0;
   right: 0%;
   z-index: 10;
-  -webkit-transform: translateY(515px);
-  transform: translateY(515px); 
+  -webkit-transform: translateY(525px);
+  transform: translateY(525px); 
   width: 350px;
   overflow: hidden;
   -webkit-transition: 0.5s;
@@ -442,8 +442,8 @@ h3.slider__title {
 }
 
 .dws-container:hover {
-  -webkit-transform: translateY(510px);
-  transform: translateY(510px); 
+  -webkit-transform: translateY(500px);
+  transform: translateY(500px); 
 }
 
 .toggle-form:checked ~ .dws-container {
@@ -636,7 +636,7 @@ footer {
   flex-direction: column;
   transition: .6s;
   display: flex;
-  width: 250px;
+  width: 300px;
   margin: 0 auto;
   text-align: center;
   justify-content: center;

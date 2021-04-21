@@ -5,6 +5,7 @@
 input,button,textarea{font-family:inherit;}
 input::-ms-clear{display: none;} 
 button{cursor: pointer;}
+html, body { font-family: 'Times New Roman';}
 button::-moz-focus-inner {padding:0;border:0;}
 a, a:visited{text-decoration: none;}
 a:hover{text-decoration: none;}

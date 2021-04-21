@@ -136,8 +136,7 @@ ul.header__list li .active-page{
   -ms-flex: 0 0 200px;
   flex: 0 0 200px;
   overflow: hidden;
-  position: relative;
-  top: -2px;
+  transform: translateY(-5%);
   z-index: 3;
 }
 .header__logo h1 {

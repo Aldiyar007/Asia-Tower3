@@ -633,6 +633,10 @@ footer {
   text-transform: uppercase;
   font-size: 13px;
 }
+
+.footer__list li {
+  max-width: 400px;
+}
 .footer__body {
   display: flex;
   flex-direction: column;

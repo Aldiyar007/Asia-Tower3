@@ -275,7 +275,6 @@ header.not-opacity {
   justify-content: center;
 }
 .info__item {
-  flex: 0 1 50%;
   justify-content: center;
 }
 .info__title {
@@ -719,6 +718,7 @@ p.rules a {
     padding: 0px 30px;
   }
   .info__img {
+    margin-bottom: 75px;
     width: 300px;
     height: 200px;
   }

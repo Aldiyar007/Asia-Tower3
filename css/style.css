@@ -674,16 +674,13 @@ p.rules a {
 
 /* Media */
 @media (max-width: 2000px) {  
+  /* Desc */
   .desc__text {
     font-size: calc(11px + (20 - 11) * ((100vw - 280px) / (1280 - 280)));
   }
 }
-@media (max-width: 1560px) {  
-  .arenda__block {
-    flex-direction: column;
-  }
-}
 @media (min-width: 1030px) {  
+  /* Contact */
   .contact {
     display: flex;
     margin-top: 20px;
@@ -706,6 +703,11 @@ p.rules a {
     top: 0;
     left: 0;
     object-fit: cover;
+  }
+
+  /* Arenda */
+  .arenda__block {
+    flex-direction: column;
   }
 }
 

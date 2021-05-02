@@ -36,17 +36,17 @@
                     </div>
                     <nav class="header__menu">
                         <ul class="header__list">
-                            <li data-scroll="#main">
-                                <a href="#" class="header__link header__link_1">Главная</a>
+                            <li>
+                                <a href="#" data-goto="#main" class="header__link header__link_1">Главная</a>
                             </li>
-                            <li data-scroll="#arenda">
-                                <a href="#" class="header__link header__link_2">Арендаторы</a>
+                            <li>
+                                <a href="#" data-goto="#arenda" class="header__link header__link_2">Арендаторы</a>
                             </li>
-                            <li data-scroll="#about">
-                                <a href="#" class="header__link header__link_3">О нас</a>
+                            <li>
+                                <a href="#" data-goto="#about" class="header__link header__link_3">О нас</a>
                             </li>
-                            <li data-scroll="#contact">
-                                <a href="#" class="header__link header__link_4">Контакты</a>
+                            <li>
+                                <a href="#" data-goto="#contact" class="header__link header__link_4">Контакты</a>
                             </li>
                         </ul>
                     </nav>
@@ -87,8 +87,8 @@
 
                 <a href="#" class="back-to-top"></a>
 
+                <!-- Form -->
                 <div>
-                    <!-- Form -->
                     <div class="dws-wrapper">
                         <input type="checkbox" name="toggle" id="dws-form" class="toggle-form" />
                         <div class="dws-container">
@@ -125,7 +125,7 @@
                 </div> <!-- /.form -->
             </div> <!-- main -->
 
-            <!-- arenda -->
+            <!-- Arenda -->
             <div class="arenda block" id="arenda">
                 <div class="container">
                     <div class="arenda__text">
@@ -223,8 +223,8 @@
                 </div>
             </div> <!-- /.about -->
 
+            <!-- Contact -->
             <div class="contact block" id="contact">
-                <!-- Contact -->
                 <div class="contact__content">
                     <div class="contact__container">
                         <div class="contact__body">
@@ -269,6 +269,7 @@
             </div> <!-- /.contact -->
         </main> <!-- /.content -->
 
+        <!-- Footer -->
         <footer>
             <div class="footer__body">
                 <nav class="footer__menu">
@@ -289,14 +290,13 @@
                     <a href="privacy-policy.html" class="red">Политика конфиденциальности</a>
                 </div>
             </div>
-        </footer>
+        </footer> <!-- /.footer -->
     </div> <!-- /.wrapper -->
 
     <!-- Scripts -->
-    <script src="js/active.js"></script>
     <script src="js/app2.js"></script>
+    <script src="js/anchor.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/slick.min.js"></script>
     <script src="js/app.js"></script>
 </body>
 

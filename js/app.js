@@ -14,7 +14,7 @@ $('.user-input').focus(function () {
     }
 });
 
-function backToTop(a) {
+function backToTop() {
     $(window).on('scroll', () => {
         if ($(this).scrollTop() >= 200) {
             button.fadeIn();
@@ -23,23 +23,11 @@ function backToTop(a) {
         }
     });
 
-    a.on('click', (e) => {
+    button.on('click', (e) => {
         e.preventDefault();
         $('html').animate({ scrollTop: 0 }, 1000);
     });
 
 }
 
-backToTop(button);
-
-$('[data-scroll]').on("click", function (e) {
-    e.preventDefault();
-
-    let elementID = $(this).data('scroll');
-    let elementOffset = $(elementID).offset().top;
-
-    $('html, body').animate({
-        scrollTop: elementOffset - 70
-    }, 700);
-
-});
+backToTop();

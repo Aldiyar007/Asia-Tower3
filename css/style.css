@@ -17,13 +17,13 @@ body {
 }
 
 body.lock {
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
-  height: 100vh;
+  /* height: 100vh;
   position: fixed;
   left: 0;
   top: 0;
-  width: 100%;
+  width: 100%; */
 }
 
 .container {
@@ -653,7 +653,13 @@ p.rules a {
   .arenda__block {
     flex-direction: column;
   }
+
+  /* Footer */
+  footer {
+    margin-top: 70px;
+  }
 }
+
 @media (min-width: 1030px) {  
   /* Contact */
   .contact {

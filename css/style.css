@@ -592,10 +592,10 @@ div.about {
   width: 100%;
   font-size: 30px;
 }
-.text {
+.about__text {
   padding: 10px 0 60px;
 }
-h2.about {
+.about__block {
 	margin-top: 10px;
 	max-width: 1060px;
   font-size: calc(9px + (18 - 9) * ((100vw - 280px) / (1280 - 280)));
@@ -603,14 +603,14 @@ h2.about {
   width: 100%;
   color: #fff;
 }
-li.about  {
+.about__list  {
   font-weight: normal;
 }
-li.about::before {
+.about__list::before {
 	content: "✓";
 	margin-right: 15px;
 }
-a.about {
+a.about__link {
   transition: .8s;
 }
 

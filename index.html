@@ -28,7 +28,7 @@
         <header class="header">
             <div class="container">
                 <div class="header__body">
-                    <a href="#" id="smooth-scrolling" class="header__logo">
+                    <a href="#" class="header__logo">
                         <h1>Asia Tower</h1>
                     </a>
                     <div class="header__burger">
@@ -37,28 +37,24 @@
                     <nav class="header__menu">
                         <ul class="header__list">
                             <li>
-                                <a href="#" data-goto="#main" class="header__link header__link_1">Главная</a>
+                                <a href="#" data-goto="#main"
+                                    class="link header__link header__link_1 active-page">Главная</a>
                             </li>
                             <li>
-                                <a href="#" data-goto="#arenda" class="header__link header__link_2">Арендаторы</a>
+                                <a href="#" data-goto="#arenda" class="link header__link header__link_2">Арендаторы</a>
                             </li>
                             <li>
-                                <a href="#" data-goto="#about" class="header__link header__link_3">О нас</a>
+                                <a href="#" data-goto="#about" class="link header__link header__link_3">О нас</a>
                             </li>
                             <li>
-                                <a href="#" data-goto="#contact" class="header__link header__link_4">Контакты</a>
+                                <a href="#contact" data-goto="#contact"
+                                    class="link header__link header__link_4">Контакты</a>
                             </li>
                         </ul>
                     </nav>
                 </div>
             </div> <!-- /.container -->
         </header> <!-- /.header -->
-
-        <!-- <div class="parallax">
-            <div class="parallax__bg"></div>
-            <div class="parallax__img"></div>
-        </div> -->
-
         <!-- Content -->
         <main class="content">
 
@@ -280,13 +276,16 @@
                 <nav class="footer__menu">
                     <ul class="footer__list">
                         <li>
-                            <a href="index.html" class="footer__link red">Главная</a>
+                            <a href="#" data-goto="#main" class="link footer__link red">Главная</a>
                         </li>
                         <li>
-                            <a href="contact.html" class="footer__link red">Контакты</a>
+                            <a href="#" data-goto="#arenda" class="link footer__link red">Арендаторы</a>
                         </li>
                         <li>
-                            <a href="about.html" class="footer__link red">О нас</a>
+                            <a href="#" data-goto="#about" class="link footer__link red">О нас</a>
+                        </li>
+                        <li>
+                            <a href="#" data-goto="#contact" class="link footer__link red">Контакты</a>
                         </li>
                     </ul>
                 </nav>

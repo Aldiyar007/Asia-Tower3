@@ -1,86 +1,59 @@
-/* Anchor */
-const menuLinks = document.querySelectorAll('.header__link[data-goto]');
-if (menuLinks.length > 0) {
-    menuLinks.forEach(menuLink => {
-        menuLink.addEventListener("click", onMenuLinkClick);
-    });
-
-    function onMenuLinkClick(e) {
-        const menuLink = e.target;
-        if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
-            const gotoBlock = document.querySelector(menuLink.dataset.goto);
-            const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('header').offsetHeight;
-
-            if (menuBurger.classList.contains('active')) {
-                body.classList.remove('lock');
-                menuBurger.classList.remove('active');
-                menuBody.classList.remove('active');
-            }
-
-            window.scrollTo({
-                top: gotoBlockValue,
-                behavior: 'smooth'
-            });
-            e.preventDefault();
-        }
-    }
-}
-
 /* Burger Menu */
 const body = document.querySelector('body');
-// let headerBurger = document.querySelector('.header__burger');
-// let numOffClicks = 0;
-
-// function disable() {
-//     let pagePosition = window.scrollY;
-//     body.classList.add('lock');
-//     body.dataset.position = pagePosition;
-//     body.style.top = -pagePosition + 'px';
-// }
-
-// function enable() {
-//     let pagePosition = parseInt(body.dataset.position, 10);
-//     body.style.top = 'auto';
-//     body.classList.remove('lock');
-//     window.scroll({ top: pagePosition, left: 0 });
-//     body.removeAttribute('data-position');
-// }
-
-// headerBurger.addEventListener("click", function () {
-//     numOffClicks++;
-//     if (numOffClicks % 2 !== 0) {
-//         document.querySelector('.header__burger').classList.add('active');
-//         document.querySelector('.header__menu').classList.add('active');
-//         document.querySelector('header').classList.add('not-opacity');
-//         disable();
-//     } else {
-//         document.querySelector('.header__burger').classList.remove('active');
-//         document.querySelector('.header__menu').classList.remove('active');
-//         document.querySelector('header').classList.remove('not-opacity');
-//         enable();
-//     };
-// });
-
 const menuBody = document.querySelector('.header__menu');
 const menuBurger = document.querySelector('.header__burger');
+let numOffClicks = 0;
+
 if (menuBurger) {
-    menuBurger.addEventListener("click", function (e) {
-        body.classList.toggle('lock')
-        menuBurger.classList.toggle('active');
-        menuBody.classList.toggle('active');
-        document.querySelector('header').classList.add('not-opacity');
+    function disable() {
+        let pagePosition = window.scrollY;
+        body.classList.add('lock');
+        body.dataset.position = pagePosition;
+        body.style.top = -pagePosition + 'px';
+    }
+
+    function enable() {
+        let pagePosition = parseInt(body.dataset.position, 10);
+        body.style.top = 'auto';
+        body.classList.remove('lock');
+        window.scroll({ top: pagePosition, left: 0 });
+        body.removeAttribute('data-position');
+        body.removeAttribute('class');
+    }
+
+    menuBurger.addEventListener("click", function () {
+        numOffClicks++;
+        console.log(numOffClicks);
+        if (numOffClicks % 2 !== 0) {
+            menuBurger.classList.add('active');
+            menuBody.classList.add('active');
+            document.querySelector('header').classList.add('not-opacity');
+            disable();
+        } else {
+            menuBurger.classList.remove('active');
+            menuBody.classList.remove('active');
+            document.querySelector('header').classList.remove('not-opacity');
+            enable();
+        };
     });
 }
 
-/* Scroll */
-document.querySelector('.header__link_1').classList.add('active-page');
+// if (menuBurger) {
+//     menuBurger.addEventListener("click", function (e) {
+//         body.classList.toggle('lock')
+//         menuBurger.classList.toggle('active');
+//         menuBody.classList.toggle('active');
+//         document.querySelector('header').classList.add('not-opacity');
+//     });
+// }
 
+/* Scroll */
 window.addEventListener('scroll', function () {
     let scrollDistance = window.scrollY;
 
     document.querySelectorAll('.block').forEach((el, i) => {
-        if (el.offsetTop - document.querySelector('.header__menu').clientHeight < scrollDistance) {
-            document.querySelectorAll('nav a').forEach((el) => {
+        if (el.offsetTop - document.querySelector('header').clientHeight < scrollDistance) {
+            document.querySelectorAll('.header__link').forEach((el) => {
                 if (el.classList.contains('active-page')) {
                     el.classList.remove('active-page');
                 }
@@ -90,6 +63,37 @@ window.addEventListener('scroll', function () {
         }
     });
 });
+
+/* Anchor */
+const menuLinks = document.querySelectorAll('.link[data-goto]');
+if (menuLinks.length > 0) {
+    for (let i = 0; i < 5; i++) {
+        menuLinks.forEach(menuLink => {
+            menuLink.addEventListener("click", function (e) {
+                const menuLink = e.target;
+                if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
+                    const gotoBlock = document.querySelector(menuLink.dataset.goto);
+                    const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('header').offsetHeight + 20;
+
+                    if (menuBurger.classList.contains('active')) {
+                        numOffClicks++;
+                        console.log(numOffClicks);
+                        menuBurger.classList.remove('active');
+                        menuBody.classList.remove('active');
+                        document.querySelector('header').classList.remove('not-opacity');
+                        enable();
+                    }
+
+                    window.scrollTo({
+                        top: gotoBlockValue,
+                        behavior: 'smooth'
+                    });
+                    e.preventDefault();
+                }
+            });
+        });
+    }
+}
 
 /* Form */
 "use strict"

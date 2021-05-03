@@ -1,11 +1,6 @@
-let slider = $('.slider');
-let textLloading = $('.text__loading');
 let button = $('.back-to-top');
 
-if (slider.slick) {
-    textLloading.text('');
-}
-
+/* Form */
 $('.user-input').focus(function () {
     $(this).parent().addClass("focus");
 }).blur(function () {
@@ -14,6 +9,7 @@ $('.user-input').focus(function () {
     }
 });
 
+/* Back to top */
 function backToTop() {
     $(window).on('scroll', () => {
         if ($(this).scrollTop() >= 200) {

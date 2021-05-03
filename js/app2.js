@@ -23,7 +23,6 @@ if (menuBurger) {
 
     menuBurger.addEventListener("click", function () {
         numOffClicks++;
-        console.log(numOffClicks);
         if (numOffClicks % 2 !== 0) {
             menuBurger.classList.add('active');
             menuBody.classList.add('active');
@@ -37,15 +36,6 @@ if (menuBurger) {
         };
     });
 }
-
-// if (menuBurger) {
-//     menuBurger.addEventListener("click", function (e) {
-//         body.classList.toggle('lock')
-//         menuBurger.classList.toggle('active');
-//         menuBody.classList.toggle('active');
-//         document.querySelector('header').classList.add('not-opacity');
-//     });
-// }
 
 /* Scroll */
 window.addEventListener('scroll', function () {
@@ -77,7 +67,6 @@ if (menuLinks.length > 0) {
 
                     if (menuBurger.classList.contains('active')) {
                         numOffClicks++;
-                        console.log(numOffClicks);
                         menuBurger.classList.remove('active');
                         menuBody.classList.remove('active');
                         document.querySelector('header').classList.remove('not-opacity');
@@ -124,24 +113,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 form.classList.remove('_sending');
             }
         } else {
-            alert('Введите обязательные поля!');
+            if (isAlert == 1) {
+                alert('Введите обязательные поля!');
+            }
         }
     }
 
     function formValidate(form) {
         let error = 0;
         let formReq = document.querySelectorAll('.req');
+        let i = 2;
 
         for (let index = 0; index < formReq.length; index++) {
             const input = formReq[index];
             formRemoveError(input);
 
             if (input.classList.contains('email')) {
+                isAlert = 0;
                 if (emailTest(input)) {
                     formAddError(input);
                     error++;
                 }
+            } else if (input.classList.contains('phone')) {
+                if (phoneTest(input)) {
+                    formAddError(input);
+                    error++;
+                }
             } else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
+                isAlert = 0;
                 formAddError(input);
                 error++;
             } else {
@@ -163,6 +162,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     function emailTest(input) {
         return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+    }
+    function phoneTest(input) {
+        alert('Введите номер с цифры 8!');
+        return !/^[0-9]+$/.test(input.value);
     }
 });
 

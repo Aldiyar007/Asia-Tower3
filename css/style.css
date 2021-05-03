@@ -17,13 +17,12 @@ body {
 }
 
 body.lock {
-  /* position: relative; */
+  position: relative;
   overflow: hidden;
-  /* height: 100vh;
-  position: fixed;
+  height: 100vh;
   left: 0;
   top: 0;
-  width: 100%; */
+  width: 100%;
 }
 
 .container {
@@ -42,8 +41,6 @@ body.lock {
   display: flex;
   flex: 1 1 auto;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.269);
-  top: -100vh;
   flex-direction: column;
 }
 
@@ -197,27 +194,6 @@ header.not-opacity {
   color: #f5f0f6;
 }
 
-/* Parallax */
-.parallax {
-  position: relative;
-  height: 100vh;
-  z-index: -1;
-}
-
-.parallax__bg {
-  background-color: rgb(111, 109, 109);
-}
-
-.parallax__img {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: url('../img/intro/intro2.jpeg') no-repeat ;
-  background-size: cover;
-}
-
 /* Intro */
 .intro {
   position: relative;
@@ -290,7 +266,6 @@ header.not-opacity {
   padding-top: 40px;
 }
 .arenda__text {
-  color: #fff;
   text-align: center;
 }
 .arenda__block {
@@ -579,7 +554,6 @@ footer li {
   font-weight: normal;
 }
 .contact__text {
-  color: #fff;
   max-width: 300px;
   font-size: 15px;
 }

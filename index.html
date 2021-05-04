@@ -25,7 +25,7 @@
     <div class="wrapper">
 
         <!-- Header -->
-        <header class="header">
+        <header id="header" class="header lock-padding">
             <div class="container">
                 <div class="header__body">
                     <a href="#" class="header__logo">
@@ -87,43 +87,6 @@
                 </div> <!-- /.description -->
 
                 <a href="#" class="back-to-top"></a>
-
-                <!-- Form -->
-                <div>
-                    <div class="dws-wrapper">
-                        <input type="checkbox" name="toggle" id="dws-form" class="toggle-form" />
-                        <div class="dws-container">
-                            <label for="dws-form" class="toggle-form"><i class="fa fa-question-circle"></i>Задать
-                                вопрос</label>
-                            <form class="form-box" id="form">
-                                <div class="input-box">
-                                    <label class="label-text">Ваше имя:</label>
-                                    <input class="user-input req" type="text" name="user_name" id="name" />
-                                </div>
-                                <div class="input-box">
-                                    <label class="label-text">E-mail:</label>
-                                    <input class="user-input req email" type="text" name="email" id="email" />
-                                </div>
-                                <div class="input-box">
-                                    <label class="label-text">Номер телефона:</label>
-                                    <input class="user-input req phone" name="phone" id="phone" />
-                                </div>
-                                <div class="input-box">
-                                    <label class="label-text">Сообщение:</label>
-                                    <textarea class="user-input req" name="message" id="message"></textarea>
-                                </div>
-                                <div class="input-box">
-                                    <label class="personal-doc">
-                                        <input type="checkbox" name="checkbox" id="checkbox" class="req" checked />
-                                        <span>Я согласен на обработку моих <a href="#">персональных данных</a>*</span>
-                                    </label>
-                                </div>
-                                <button type="submit" class="button">Отправить</button>
-                            </form>
-                        </div>
-                    </div>
-
-                </div> <!-- /.form -->
             </div> <!-- main -->
 
             <!-- Arenda -->
@@ -140,20 +103,73 @@
                     </div>
                     <div class="arenda__block">
                         <div class="arenda__item">
-                            <img src="img/arenda/arenda1.jpeg" alt="фото арендатора" class="arenda__img zoom-hover">
+                            <p><a class="popup-link" href="#popup1"><img src="img/arenda/arenda1.jpeg"
+                                        alt="фото арендатора" class="arenda__img zoom-hover"></a>
+                            </p>
                         </div>
                         <div class="arenda__item">
-                            <img src="img/arenda/arenda2.jpeg" alt="фото арендатора" class="arenda__img zoom-hover">
+                            <p><a class="popup-link" href="#popup2"><img src="img/arenda/arenda2.jpeg"
+                                        alt="фото арендатора" class="arenda__img zoom-hover"></a>
+                            </p>
                         </div>
                         <div class="arenda__item">
-                            <img src="img/arenda/arenda3.jpeg" alt="фото арендатора" class="arenda__img zoom-hover">
+                            <p><a class="popup-link" href="#popup3"><img src="img/arenda/arenda3.jpeg"
+                                        alt="фото арендатора" class="arenda__img zoom-hover"></a>
+                            </p>
                         </div>
                         <div class="arenda__item">
-                            <img src="img/arenda/arenda4.jpeg" alt="фото арендатора" class="arenda__img zoom-hover">
+                            <p><a class="popup-link" href="#popup4"><img src="img/arenda/arenda4.jpeg"
+                                        alt="фото арендатора" class="arenda__img zoom-hover"></a>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div> <!-- /.arenda -->
+
+            <!-- Popup -->
+            <div id="popup1" class="popup">
+                <div class="popup__body">
+                    <div class="popup__content">
+                        <a href="#header" class="close-popup">X</a>
+                        <div class="popup__text">
+                            <img src="img/arenda/arenda1.jpeg" alt="фото арендатора" class="popup__img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="popup2" class="popup">
+                <div class="popup__body">
+                    <div class="popup__content">
+                        <a href="#header" class="close-popup">X</a>
+                        <div class="popup__text">
+                            <img src="img/arenda/arenda2.jpeg" alt="фото арендатора" class="popup__img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="popup3" class="popup">
+                <div class="popup__body">
+                    <div class="popup__content">
+                        <a href="#header" class="close-popup">X</a>
+                        <div class="popup__text">
+                            <img src="img/arenda/arenda3.jpeg" alt="фото арендатора" class="popup__img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="popup4" class="popup">
+                <div class="popup__body">
+                    <div class="popup__content">
+                        <a href="#header" class="close-popup">X</a>
+                        <div class="popup__text">
+                            <img src="img/arenda/arenda4.jpeg" alt="фото арендатора" class="popup__img">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- About -->
             <div class="about block" id="about">
@@ -271,6 +287,44 @@
                 </div>
 
             </div> <!-- /.contact -->
+
+            <!-- Form -->
+            <div>
+                <div class="dws-wrapper">
+                    <input type="checkbox" name="toggle" id="dws-form" class="toggle-form" />
+                    <div class="dws-container">
+                        <label for="dws-form" class="toggle-form"><i class="fa fa-question-circle"></i>Задать
+                            вопрос</label>
+                        <form class="form-box" id="form">
+                            <div class="input-box">
+                                <label class="label-text">Ваше имя:</label>
+                                <input class="user-input req" type="text" name="user_name" id="name" />
+                            </div>
+                            <div class="input-box">
+                                <label class="label-text">E-mail:</label>
+                                <input class="user-input req email" type="text" name="email" id="email" />
+                            </div>
+                            <div class="input-box">
+                                <label class="label-text">Номер телефона:</label>
+                                <input class="user-input req phone" name="phone" id="phone" />
+                            </div>
+                            <div class="input-box">
+                                <label class="label-text">Сообщение:</label>
+                                <textarea class="user-input req" name="message" id="message"></textarea>
+                            </div>
+                            <div class="input-box">
+                                <label class="personal-doc">
+                                    <input type="checkbox" name="checkbox" id="checkbox" class="req" checked />
+                                    <span>Я согласен на обработку моих <a href="#">персональных данных</a>*</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="button">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div> <!-- /.form -->
+
         </main> <!-- /.content -->
 
         <!-- Footer -->

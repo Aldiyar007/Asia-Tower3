@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 form.reset();
                 form.classList.remove('_sending');
             } else {
-                alert('Ошибка');
+                alert('Ошибка соединения. Повторите попытку позже');
                 form.classList.remove('_sending');
             }
         } else {
@@ -122,25 +122,26 @@ document.addEventListener('DOMContentLoaded', function () {
     function formValidate(form) {
         let error = 0;
         let formReq = document.querySelectorAll('.req');
-        let i = 2;
+        let isAlert = 2;
 
         for (let index = 0; index < formReq.length; index++) {
             const input = formReq[index];
             formRemoveError(input);
 
             if (input.classList.contains('email')) {
-                isAlert = 0;
                 if (emailTest(input)) {
+                    alert('Введите e-mail корректно');
                     formAddError(input);
                     error++;
                 }
             } else if (input.classList.contains('phone')) {
                 if (phoneTest(input)) {
+                    alert('Введите телефон корректно');
                     formAddError(input);
                     error++;
                 }
             } else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
-                isAlert = 0;
+                isAlert = 1;
                 formAddError(input);
                 error++;
             } else {
@@ -164,7 +165,10 @@ document.addEventListener('DOMContentLoaded', function () {
         return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
     }
     function phoneTest(input) {
-        alert('Введите номер с цифры 8!');
+        let s = input.value
+        if (s.startsWith('+') || s.length < 10) {
+            alert('Введите число с цифры 8!');
+        }
         return !/^[0-9]+$/.test(input.value);
     }
 });

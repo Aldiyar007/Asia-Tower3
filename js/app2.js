@@ -136,7 +136,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             } else if (input.classList.contains('phone')) {
                 if (phoneTest(input)) {
-                    alert('Введите телефон корректно');
+                    if (isAlert == 0) {
+                        alert('Введите телефон корректно');
+                    }
                     formAddError(input);
                     error++;
                 }

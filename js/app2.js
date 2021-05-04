@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (s.startsWith('+')) {
             alert('Введите число с цифры 8!');
         } else if (s.length < 10) {
-            isAlert = 0;
+            alert('Введите номер телефона корректно')
         }
         return !/^[0-9]+$/.test(input.value);
     }

@@ -119,10 +119,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    let isAlert = 2;
+
     function formValidate(form) {
         let error = 0;
         let formReq = document.querySelectorAll('.req');
-        let isAlert = 2;
 
         for (let index = 0; index < formReq.length; index++) {
             const input = formReq[index];
@@ -168,8 +169,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     function phoneTest(input) {
         let s = input.value
-        if (s.startsWith('+') || s.length < 10) {
+        if (s.startsWith('+')) {
             alert('Введите число с цифры 8!');
+        } else if (s.length < 10) {
+            isAlert == 0
         }
         return !/^[0-9]+$/.test(input.value);
     }

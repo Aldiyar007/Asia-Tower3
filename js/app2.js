@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 error++;
             } else {
                 if (input.value === '') {
+                    isAlert = 1;
                     formAddError(input);
                     error++;
                 }
@@ -172,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (s.startsWith('+')) {
             alert('Введите число с цифры 8!');
         } else if (s.length < 10) {
-            isAlert == 0
+            isAlert = 0;
         }
         return !/^[0-9]+$/.test(input.value);
     }

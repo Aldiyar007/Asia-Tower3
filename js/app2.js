@@ -90,7 +90,7 @@ const lockPadding = document.querySelectorAll('.lock-padding');
 
 let unlock = true;
 
-const timeout = 500;
+const timeout = 80;
 
 if (popupLinks.length > 0) {
     for (let index = 0; index < popupLinks.length; index++) {
@@ -141,9 +141,7 @@ function popupClose(popupActive, doUnlock = true) {
 }
 
 function bodyLock() {
-    disable();
-
-    const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+    const lockPaddingValue = window.innerWidth - document.querySelector('.content').offsetWidth + 'px';
 
     if (lockPadding.length > 0) {
         for (let index = 0; index < lockPadding.length; index++) {
@@ -152,7 +150,9 @@ function bodyLock() {
         }
     }
     body.style.paddingRight = lockPaddingValue;
+    disable();
     body.classList.add('lock');
+
 
     unlock = false;
     setTimeout(function () {
@@ -169,6 +169,7 @@ function bodyUnlock() {
             }
         }
         body.style.paddingRight = '0px';
+        enable();
         body.classList.remove('lock');
     }, timeout);
 
@@ -176,8 +177,6 @@ function bodyUnlock() {
     setTimeout(function () {
         unlock = true;
     }, timeout);
-
-    enable();
 }
 
 document.addEventListener('keydown', function (e) {

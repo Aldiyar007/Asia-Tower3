@@ -320,7 +320,7 @@ header.not-opacity {
   justify-content: center;
   align-items: center;
   padding: 30px 10px;
-  transition: all 0.8s ease 0s;
+  transition: all 0.5s ease 0s;
 }
 .popup__content {
   background-color: #fff;
@@ -329,7 +329,7 @@ header.not-opacity {
   padding: 30px;
   position: relative;
   min-width: 350px;
-  transition: all 0.8s ease 0s;
+  transition: all 0.5s ease 0s;
   opacity: 0;
   transform: translate(0px,-100%);
 }

@@ -4,23 +4,23 @@ const menuBody = document.querySelector('.header__menu');
 const menuBurger = document.querySelector('.header__burger');
 let numOffClicks = 0;
 
+function disable() {
+    let pagePosition = window.scrollY;
+    body.classList.add('lock');
+    body.dataset.position = pagePosition;
+    body.style.top = -pagePosition + 'px';
+}
+
+function enable() {
+    let pagePosition = parseInt(body.dataset.position, 10);
+    body.style.top = 'auto';
+    body.classList.remove('lock');
+    window.scroll({ top: pagePosition, left: 0 });
+    body.removeAttribute('data-position');
+    body.removeAttribute('class');
+}
+
 if (menuBurger) {
-    function disable() {
-        let pagePosition = window.scrollY;
-        body.classList.add('lock');
-        body.dataset.position = pagePosition;
-        body.style.top = -pagePosition + 'px';
-    }
-
-    function enable() {
-        let pagePosition = parseInt(body.dataset.position, 10);
-        body.style.top = 'auto';
-        body.classList.remove('lock');
-        window.scroll({ top: pagePosition, left: 0 });
-        body.removeAttribute('data-position');
-        body.removeAttribute('class');
-    }
-
     menuBurger.addEventListener("click", function () {
         numOffClicks++;
         if (numOffClicks % 2 !== 0) {
@@ -90,7 +90,7 @@ const lockPadding = document.querySelectorAll('.lock-padding');
 
 let unlock = true;
 
-const timeout = 800;
+const timeout = 500;
 
 if (popupLinks.length > 0) {
     for (let index = 0; index < popupLinks.length; index++) {
@@ -141,6 +141,8 @@ function popupClose(popupActive, doUnlock = true) {
 }
 
 function bodyLock() {
+    disable();
+
     const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
 
     if (lockPadding.length > 0) {
@@ -150,7 +152,7 @@ function bodyLock() {
         }
     }
     body.style.paddingRight = lockPaddingValue;
-    body.classList.add('lock-popup');
+    body.classList.add('lock');
 
     unlock = false;
     setTimeout(function () {
@@ -167,13 +169,15 @@ function bodyUnlock() {
             }
         }
         body.style.paddingRight = '0px';
-        body.classList.remove('lock-popup');
+        body.classList.remove('lock');
     }, timeout);
 
     unlock = false;
     setTimeout(function () {
         unlock = true;
     }, timeout);
+
+    enable();
 }
 
 document.addEventListener('keydown', function (e) {

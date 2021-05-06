@@ -145,13 +145,14 @@ function bodyLock() {
     const lockPaddingValue = window.innerWidth - document.querySelector('.content').offsetWidth + 'px';
 
     if (lockPadding.length > 0) {
+        const container = document.querySelector('.dws-container');
         for (let index = 0; index < lockPadding.length; index++) {
             const el = lockPadding[index];
             el.style.paddingRight = lockPaddingValue;
-            if (el == document.querySelector('.dws-wrapper')) {
-                document.querySelector('.dws-wrapper').style.paddingRight = lockPaddingValue;
+            if (el == container) {
+                container.style.paddingRight = '0px';
+                container.style.marginRight = lockPaddingValue;
             }
-            el.removeAttribute('style');
         }
     }
     body.style.paddingRight = lockPaddingValue;

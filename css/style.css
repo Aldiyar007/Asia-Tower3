@@ -163,11 +163,19 @@ header.not-opacity {
   bottom: 200px;
   width: 50px;
   height: 50px;
-  display: none;
+  /* display: none; */
+  opacity: 0;
+  visibility: hidden;
   border-color: transparent;
   border-radius: 50%;
   background-color: #629460;
   z-index: 10;
+  transition: .8s;
+}
+
+.back-to-top.open{
+  opacity: 1;
+  visibility: visible;
 }
 
 .back-to-top:hover,

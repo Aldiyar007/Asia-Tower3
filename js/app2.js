@@ -84,6 +84,37 @@ if (menuLinks.length > 0) {
     }
 }
 
+/* Back to top */
+let backToTopEL = document.querySelector('.back-to-top');
+
+function backToTop() {
+    window.addEventListener('scroll', function () {
+        if (window.pageYOffset >= 200) {
+            backToTopEL.classList.add('open');
+        } else {
+            backToTopEL.classList.remove('open');
+        }
+    });
+
+    const anchors = document.querySelectorAll('.back-to-top');
+
+    for (let anchor of anchors) {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault()
+
+            const blockID = anchor.getAttribute('href').replace('#', '');
+
+            document.querySelector(blockID).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            })
+        })
+    }
+
+};
+
+backToTop();
+
 /* Popup */
 const popupLinks = document.querySelectorAll('.popup-link');
 const lockPadding = document.querySelectorAll('.lock-padding');

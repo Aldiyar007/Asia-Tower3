@@ -109,8 +109,8 @@ if (popupCLoseIcon.length > 0) {
     for (let index = 0; index < popupCLoseIcon.length; index++) {
         const el = popupCLoseIcon[index];
         el.addEventListener('click', function (e) {
-            e.preventDefault();
             popupCLose(el.closest('.popup'));
+            e.preventDefault();
         });
     }
 }
@@ -168,10 +168,14 @@ function bodyLock() {
 function bodyUnlock() {
     setTimeout(function () {
         if (lockPadding.length > 0) {
+            const container = document.querySelector('.dws-container');
             for (let index = 0; index < lockPadding.length; index++) {
                 const el = lockPadding[index];
                 el.style.paddingRight = '0px';
-                el.removeAttribute('style');
+                if (el == container) {
+                    container.style.paddingRight = '0px';
+                    container.style.marginRight = '0px';
+                }
             }
         }
         body.style.paddingRight = '0px';

@@ -292,7 +292,6 @@ header.not-opacity {
   background-color: rgba(0, 0, 0, 0.8);
   top: 0;
   left: 0;
-  z-index: 99999999999999999999999999999999999;
   opacity: 0;
   visibility: hidden;
   overflow-y: auto;
@@ -300,8 +299,18 @@ header.not-opacity {
   transition: all 0.8s ease 0s;
 }
 
-.close-popup {
-  display: block;
+.popup.open {
+  z-index: 99999999999999999999999999999999999;
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup.open .popup__content {
+  transform: perspective(600px) translate(0px,0%) rotateX(0deg);
+  opacity: 1;
+}
+
+.popup__close {
   position: relative;
   width: 30px;
   height: 15px;
@@ -312,8 +321,8 @@ header.not-opacity {
   text-decoration: none;
 }
 
-.close-popup::before,
-.close-popup::after {
+.popup__close::before,
+.popup__close::after {
   content: "";
   position: absolute;
   color: #000;
@@ -323,26 +332,16 @@ header.not-opacity {
   left: 0;
 }
 
-.close-popup:before {
+.popup__close:before {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
   top: 9px;
 }
 
-.close-popup:after {
+.popup__close:after {
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
   bottom: 4px;
-}
-
-.popup.open {
-  opacity: 1;
-  visibility: visible;
-}
-
-.popup.open .popup__content {
-  transform: perspective(600px) translate(0px,0%) rotateX(0deg);
-  opacity: 1;
 }
 
 .popup__body {
@@ -379,23 +378,19 @@ header.not-opacity {
 .dws-container {
   position: fixed;
   bottom: 0;
-  right: 0%;
+  right: 0;
   z-index: 10;
-  -webkit-transform: translateY(525px);
   transform: translateY(525px); 
   width: 350px;
   overflow: hidden;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 .dws-container:hover {
-  -webkit-transform: translateY(515px);
   transform: translateY(515px); 
 }
 
 .toggle-form:checked ~ .dws-container {
-  -webkit-transform: translateY(0);
   transform: translateY(0); 
 }
 

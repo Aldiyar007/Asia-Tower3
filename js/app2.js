@@ -90,7 +90,7 @@ const lockPadding = document.querySelectorAll('.lock-padding');
 
 let unlock = true;
 
-const timeout = 80;
+const timeout = 800;
 
 if (popupLinks.length > 0) {
     for (let index = 0; index < popupLinks.length; index++) {
@@ -109,8 +109,8 @@ if (popupCLoseIcon.length > 0) {
     for (let index = 0; index < popupCLoseIcon.length; index++) {
         const el = popupCLoseIcon[index];
         el.addEventListener('click', function (e) {
-            popupCLose(el.closest('.popup'));
             e.preventDefault();
+            popupCLose(el.closest('.popup'));
         });
     }
 }
@@ -124,6 +124,7 @@ function popupOpen(curentPopup) {
             bodyLock();
         }
         curentPopup.classList.add('open');
+        document.querySelector('#dws-form').checked = false;
         curentPopup.addEventListener('click', function (e) {
             if (!e.target.closest('.popup__content'));
             popupClose(e.target.closest('.popup'));
@@ -147,12 +148,15 @@ function bodyLock() {
         for (let index = 0; index < lockPadding.length; index++) {
             const el = lockPadding[index];
             el.style.paddingRight = lockPaddingValue;
+            if (el == document.querySelector('.dws-wrapper')) {
+                document.querySelector('.dws-wrapper').style.paddingRight = lockPaddingValue;
+            }
+            el.removeAttribute('style');
         }
     }
     body.style.paddingRight = lockPaddingValue;
     disable();
     body.classList.add('lock');
-
 
     unlock = false;
     setTimeout(function () {
@@ -166,12 +170,13 @@ function bodyUnlock() {
             for (let index = 0; index < lockPadding.length; index++) {
                 const el = lockPadding[index];
                 el.style.paddingRight = '0px';
+                el.removeAttribute('style');
             }
         }
         body.style.paddingRight = '0px';
         enable();
         body.classList.remove('lock');
-    }, timeout);
+    }, 500);
 
     unlock = false;
     setTimeout(function () {
@@ -212,12 +217,11 @@ document.addEventListener('keydown', function (e) {
     }
 })();
 
-
 /* Form */
-"use strict"
+// "use strict"
 
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('form');
+    const form = document.querySelector('.form');
     form.addEventListener('submit', formSend);
 
     async function formSend(e) {
@@ -242,13 +246,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 form.classList.remove('_sending');
             }
         } else {
-            if (isAlert == 1) {
-                alert('Введите обязательные поля!');
-            }
+            alert('Введите обязательные поля корректно!');
         }
     }
 
-    let isAlert = 2;
     let error = 0;
 
     function formValidate(form) {
@@ -260,25 +261,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (input.classList.contains('email')) {
                 if (emailTest(input)) {
-                    alert('Введите e-mail корректно');
                     formAddError(input);
                     error++;
                 }
             } else if (input.classList.contains('phone')) {
                 if (phoneTest(input)) {
-                    if (isAlert == 0) {
-                        alert('Введите телефон корректно');
-                    }
                     formAddError(input);
                     error++;
                 }
             } else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
-                isAlert = 1;
                 formAddError(input);
                 error++;
             } else {
                 if (input.value === '') {
-                    isAlert = 1;
                     formAddError(input);
                     error++;
                 }
@@ -298,17 +293,10 @@ document.addEventListener('DOMContentLoaded', function () {
         return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
     }
     function phoneTest(input) {
-        let s = input.value
-        if (s.startsWith('+')) {
-            alert('Введите номер телефона с цифры 8!');
-        }
-        else if (input.value.length < 11) {
-            alert('Введите номер телефона корректно');
-            error++;
-        }
         return !/^[0-9]+$/.test(input.value);
     }
 });
+
 
 /* Opacity Header */
 window.onscroll = function showHeader() {

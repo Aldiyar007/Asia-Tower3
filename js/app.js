@@ -254,19 +254,17 @@ document.addEventListener('keydown', function (e) {
 })();
 
 /* Form */
-function focus(x) {
+function Focus(x) {
     x.parentElement.classList.add('focus');
 }
 
-function blur(x) {
+function Blur(x) {
     if (x.value.trim() === '') {
         x.parentElement.classList.remove('focus');
     }
 }
 
 /* Form */
-// "use strict"
-
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.form');
     form.addEventListener('submit', formSend);

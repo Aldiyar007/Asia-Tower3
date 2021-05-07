@@ -295,9 +295,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    let error = 0;
-
     function formValidate(form) {
+        let error = 0;
         let formReq = document.querySelectorAll('.req');
 
         for (let index = 0; index < formReq.length; index++) {

@@ -182,7 +182,7 @@ function bodyLock() {
             el.style.paddingRight = lockPaddingValue;
             if (el == container) {
                 container.style.paddingRight = '0px';
-                container.style.marginRight = lockPaddingValue;
+                container.style.right = lockPaddingValue;
             }
         }
     }
@@ -204,9 +204,9 @@ function bodyUnlock() {
                 const el = lockPadding[index];
                 el.style.paddingRight = '0px';
                 if (el == container) {
-                    container.style.paddingRight = '0px';
-                    container.style.marginRight = '0px';
+                    container.style.right = '0px';
                 }
+                el.removeAttribute('style');
             }
         }
         body.style.paddingRight = '0px';

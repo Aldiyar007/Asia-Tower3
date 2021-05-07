@@ -253,7 +253,7 @@ document.addEventListener('keydown', function (e) {
     }
 })();
 
-/* Form */
+/* Form Focus */
 function Focus(x) {
     x.parentElement.classList.add('focus');
 }
@@ -263,6 +263,14 @@ function Blur(x) {
         x.parentElement.classList.remove('focus');
     }
 }
+
+if (document.querySelector('#dws-form').checked = true) {
+    window.addEventListener('scroll', function () {
+        document.querySelector('#dws-form').checked = false;
+    });
+}
+
+document.querySelector('#dws-form').checked = false;
 
 /* Form */
 document.addEventListener('DOMContentLoaded', function () {

@@ -67,7 +67,9 @@
                     <source src="img/intro/intro.webm">
                     <source src="img/intro/intro.mp4">
                 </video> -->
-                    <img src="img/intro/intro2.jpeg" alt="intro" class="intro__img">
+                    <div class="intro-screen__bg ibg">
+                        <img src="img/intro/intro2.jpeg" alt="intro" class="intro__img">
+                    </div>
                 </div> <!-- /.intro -->
 
                 <!-- Description -->
@@ -253,19 +255,23 @@
                         <form class="form-box form" id="form">
                             <div class="input-box">
                                 <label class="label-text">Ваше имя:</label>
-                                <input class="user-input req" type="text" name="user_name" id="name" />
+                                <input class="user-input req" type="text" onfocus="focus(this)" onblur="blur(this)"
+                                    name="user_name" id="name" />
                             </div>
                             <div class="input-box">
                                 <label class="label-text">E-mail:</label>
-                                <input class="user-input req email" type="text" name="email" id="email" />
+                                <input class="user-input req email" type="text" onfocus="focus(this)"
+                                    onblur="blur(this)" name="email" id="email" />
                             </div>
                             <div class="input-box">
                                 <label class="label-text">Номер телефона:</label>
-                                <input class="user-input req phone" name="phone" id="phone" />
+                                <input class="user-input req phone" name="phone" onfocus="focus(this)"
+                                    onblur="blur(this)" id="phone" />
                             </div>
                             <div class="input-box">
                                 <label class="label-text">Сообщение:</label>
-                                <textarea class="user-input req" name="message" id="message"></textarea>
+                                <textarea class="user-input req" name="message" onfocus="focus(this)"
+                                    onblur="blur(this)" id="message"></textarea>
                             </div>
                             <div class="input-box">
                                 <label class="personal-doc">
@@ -355,8 +361,6 @@
     </div> <!-- /.wrapper -->
 
     <!-- Scripts -->
-    <script src="js/app2.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/app.js"></script>
 </body>
 

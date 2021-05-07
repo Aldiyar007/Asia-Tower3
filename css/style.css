@@ -1,6 +1,6 @@
 /* Обнуление */
 *{ padding: 0; margin: 0; border: 0; }
-*,*:before,*:after{ -webkit-box-sizing: border-box; box-sizing: border-box; }
+*,*:before,*:after{ -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 :focus,:active{outline: none;} a:focus,a:active{outline: none;}
 input,button,textarea{font-family:inherit;}
 input::-ms-clear{display: none;} 
@@ -163,14 +163,13 @@ header.not-opacity {
   bottom: 200px;
   width: 50px;
   height: 50px;
-  /* display: none; */
   opacity: 0;
   visibility: hidden;
   border-color: transparent;
   border-radius: 50%;
   background-color: #629460;
   z-index: 10;
-  transition: .8s;
+  transition: .2s;
 }
 
 .back-to-top.open{
@@ -209,6 +208,7 @@ header.not-opacity {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  display: -webkit-flex;
 }
 .intro__body {
   position: relative;

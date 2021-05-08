@@ -264,6 +264,14 @@ function Blur(x) {
     }
 }
 
+window.addEventListener('load', function () {
+    if (document.querySelector('#dws-form').checked = true) {
+        setTimeout(function () {
+            document.querySelector('#dws-form').checked = false;
+        }, 400);
+    }
+});
+
 /* Form */
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.form');

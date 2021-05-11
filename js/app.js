@@ -213,7 +213,7 @@ function bodyUnlock() {
     unlock = false;
     setTimeout(function () {
         unlock = true;
-    }, 150);
+    }, timeout);
 }
 
 document.addEventListener('keydown', function (e) {

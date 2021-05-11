@@ -206,7 +206,6 @@ function bodyUnlock() {
         enable();
         body.style.paddingRight = '0px';
         body.classList.remove('lock');
-        // body.classList.remove('lock-popup');
     }, timeout);
 
     unlock = false;

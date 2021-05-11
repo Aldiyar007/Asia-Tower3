@@ -352,10 +352,6 @@ header.not-opacity {
   bottom: 4px;
 }
 
-body.lock-popup {
-  overflow: hidden;
-}
-
 .popup__body {
   min-height: 100%;
   display: flex;

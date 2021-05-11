@@ -59,7 +59,7 @@ window.addEventListener('scroll', function () {
 /* Anchor */
 const menuLinks = document.querySelectorAll('.link[data-goto]');
 if (menuLinks.length > 0) {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < menuLinks.length; i++) {
         menuLinks.forEach(menuLink => {
             menuLink.addEventListener("click", function (e) {
                 const menuLink = e.target;
@@ -67,12 +67,14 @@ if (menuLinks.length > 0) {
                     const gotoBlock = document.querySelector(menuLink.dataset.goto);
                     const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('header').offsetHeight + 20;
 
-                    if (menuBurger.classList.contains('active')) {
-                        numOffClicks++;
-                        menuBurger.classList.remove('active');
-                        menuBody.classList.remove('active');
-                        document.querySelector('header').classList.remove('not-opacity');
-                        enable();
+                    if (menuBurger) {
+                        if (menuBurger.classList.contains('active')) {
+                            numOffClicks++;
+                            menuBurger.classList.remove('active');
+                            menuBody.classList.remove('active');
+                            document.querySelector('header').classList.remove('not-opacity');
+                            enable();
+                        }
                     }
 
                     window.scrollTo({
@@ -98,13 +100,14 @@ function backToTop() {
         }
     });
 
-    const anchors = document.querySelectorAll('.back-to-top');
+    const anchors = document.querySelectorAll('.smooth');
 
     for (let anchor of anchors) {
         anchor.addEventListener('click', function (e) {
             e.preventDefault()
 
             const blockID = anchor.getAttribute('href').replace('#', '');
+            console.log(blockID);
 
             document.querySelector(blockID).scrollIntoView({
                 behavior: 'smooth',
@@ -190,7 +193,7 @@ function bodyLock() {
     unlock = false;
     setTimeout(function () {
         unlock = true;
-    }, 100);
+    }, 4);
 }
 
 function bodyUnlock() {
@@ -209,7 +212,7 @@ function bodyUnlock() {
     unlock = false;
     setTimeout(function () {
         unlock = true;
-    }, 100);
+    }, 4);
 }
 
 document.addEventListener('keydown', function (e) {

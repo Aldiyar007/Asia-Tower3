@@ -723,6 +723,12 @@ p.rules a {
   color: blue;
 }
 
+.icon {
+  height: 18px; 
+  width: 20px;
+  position: relative;  
+}
+
 /* Private Police */
 .item__title {
   margin-top: 18px;

@@ -18,8 +18,6 @@ function enable() {
     body.style.top = 'auto';
     body.classList.remove('lock');
     window.scroll({ top: pagePosition, left: 0 });
-    body.removeAttribute('data-position');
-    body.removeAttribute('class');
 }
 
 if (menuBurger) {
@@ -187,8 +185,8 @@ function bodyLock() {
             el.style.paddingRight = lockPaddingValue;
         }
     }
-    body.style.paddingRight = lockPaddingValue;
     disable();
+    body.style.paddingRight = lockPaddingValue;
     body.classList.add('lock');
 
     unlock = false;
@@ -205,9 +203,10 @@ function bodyUnlock() {
                 el.style.paddingRight = '0px';
             }
         }
-        body.style.paddingRight = '0px';
         enable();
+        body.style.paddingRight = '0px';
         body.classList.remove('lock');
+        // body.classList.remove('lock-popup');
     }, timeout);
 
     unlock = false;

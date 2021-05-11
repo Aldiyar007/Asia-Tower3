@@ -352,6 +352,10 @@ header.not-opacity {
   bottom: 4px;
 }
 
+body.lock-popup {
+  overflow: hidden;
+}
+
 .popup__body {
   min-height: 100%;
   display: flex;
@@ -366,7 +370,7 @@ header.not-opacity {
   max-width: 800px;
   padding: 30px;
   position: relative;
-  min-width: 350px;
+  min-width: 320px;
   transition: all 0.8s ease 0s;
   opacity: 0;
   transform: translate(0px,-100%);

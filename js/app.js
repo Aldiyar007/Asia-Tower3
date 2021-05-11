@@ -162,8 +162,9 @@ function popupOpen(curentPopup) {
         curentPopup.classList.add('open');
         document.querySelector('#dws-form').checked = false;
         curentPopup.addEventListener("click", function (e) {
-            if (!e.target.closest('.popup__content'));
-            popupClose(e.target.closest('.popup'));
+            if (!e.target.closest('.popup__content')) {
+                popupClose(e.target.closest('.popup'));
+            }
         });
     }
 }
@@ -193,7 +194,7 @@ function bodyLock() {
     unlock = false;
     setTimeout(function () {
         unlock = true;
-    }, 4);
+    }, timeout);
 }
 
 function bodyUnlock() {
@@ -207,12 +208,12 @@ function bodyUnlock() {
         body.style.paddingRight = '0px';
         enable();
         body.classList.remove('lock');
-    }, 500);
+    }, timeout);
 
     unlock = false;
     setTimeout(function () {
         unlock = true;
-    }, 4);
+    }, 150);
 }
 
 document.addEventListener('keydown', function (e) {

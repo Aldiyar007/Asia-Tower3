@@ -1,3 +1,5 @@
+'use strict'
+
 /* Burger Menu */
 const body = document.querySelector('body');
 const menuBody = document.querySelector('.header__menu');
@@ -140,7 +142,7 @@ if (popupCLoseIcon.length > 0) {
     for (let index = 0; index < popupCLoseIcon.length; index++) {
         const el = popupCLoseIcon[index];
         el.addEventListener('click', function (e) {
-            popupCLose(el.closest('.popup'));
+            popupClose(el.closest('.popup'));
             e.preventDefault();
         });
     }
@@ -156,7 +158,7 @@ function popupOpen(curentPopup) {
         }
         curentPopup.classList.add('open');
         document.querySelector('#dws-form').checked = false;
-        curentPopup.addEventListener('click', function (e) {
+        curentPopup.addEventListener("click", function (e) {
             if (!e.target.closest('.popup__content'));
             popupClose(e.target.closest('.popup'));
         });
@@ -176,14 +178,9 @@ function bodyLock() {
     const lockPaddingValue = window.innerWidth - document.querySelector('.content').offsetWidth + 'px';
 
     if (lockPadding.length > 0) {
-        const container = document.querySelector('.dws-container');
         for (let index = 0; index < lockPadding.length; index++) {
             const el = lockPadding[index];
             el.style.paddingRight = lockPaddingValue;
-            if (el == container) {
-                container.style.paddingRight = '0px';
-                container.style.right = lockPaddingValue;
-            }
         }
     }
     body.style.paddingRight = lockPaddingValue;
@@ -193,20 +190,15 @@ function bodyLock() {
     unlock = false;
     setTimeout(function () {
         unlock = true;
-    }, timeout);
+    }, 100);
 }
 
 function bodyUnlock() {
     setTimeout(function () {
         if (lockPadding.length > 0) {
-            const container = document.querySelector('.dws-container');
             for (let index = 0; index < lockPadding.length; index++) {
                 const el = lockPadding[index];
                 el.style.paddingRight = '0px';
-                if (el == container) {
-                    container.style.right = '0px';
-                }
-                el.removeAttribute('style');
             }
         }
         body.style.paddingRight = '0px';
@@ -217,7 +209,7 @@ function bodyUnlock() {
     unlock = false;
     setTimeout(function () {
         unlock = true;
-    }, timeout);
+    }, 100);
 }
 
 document.addEventListener('keydown', function (e) {

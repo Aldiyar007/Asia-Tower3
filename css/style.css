@@ -209,6 +209,7 @@ header.not-opacity {
   display: flex;
   flex-direction: column;
   display: -webkit-flex;
+  display: -ms-flexbox;
 }
 .intro__body {
   position: relative;

@@ -5,34 +5,45 @@ const body = document.querySelector('body');
 const menuBody = document.querySelector('.header__menu');
 const menuBurger = document.querySelector('.header__burger');
 let numOffClicks = 0;
+const header = document.querySelector('header.header');
 
 function disable() {
-    let pagePosition = window.scrollY;
+    const pagePosition = window.scrollY;
     body.classList.add('lock');
     body.dataset.position = pagePosition;
     body.style.top = -pagePosition + 'px';
 }
 
 function enable() {
-    let pagePosition = parseInt(body.dataset.position, 10);
+    const pagePosition = parseInt(body.dataset.position, 10);
     body.style.top = 'auto';
     body.classList.remove('lock');
     window.scroll({ top: pagePosition, left: 0 });
+    body.removeAttribute('class');
+}
+
+function addClass() {
+    menuBurger.classList.add('active');
+    menuBody.classList.add('active');
+    header.classList.add('not-opacity');
+}
+
+function removeClass() {
+    menuBurger.classList.remove('active');
+    menuBody.classList.remove('active');
+    header.classList.remove('not-opacity');
 }
 
 if (menuBurger) {
     menuBurger.addEventListener("click", function () {
         numOffClicks++;
         if (numOffClicks % 2 !== 0) {
-            menuBurger.classList.add('active');
-            menuBody.classList.add('active');
-            document.querySelector('header').classList.add('not-opacity');
+            addClass();
             disable();
         } else {
-            menuBurger.classList.remove('active');
-            menuBody.classList.remove('active');
-            document.querySelector('header').classList.remove('not-opacity');
+            removeClass();
             enable();
+            body.removeAttribute('data-position');
         };
     });
 }
@@ -42,7 +53,7 @@ window.addEventListener('scroll', function () {
     let scrollDistance = window.scrollY;
 
     document.querySelectorAll('.block').forEach((el, i) => {
-        if (el.offsetTop - document.querySelector('header').clientHeight < scrollDistance) {
+        if (el.offsetTop - header.clientHeight < scrollDistance) {
             document.querySelectorAll('.header__link').forEach((el) => {
                 if (el.classList.contains('active-page')) {
                     el.classList.remove('active-page');
@@ -63,14 +74,12 @@ if (menuLinks.length > 0) {
                 const menuLink = e.target;
                 if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
                     const gotoBlock = document.querySelector(menuLink.dataset.goto);
-                    const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('header').offsetHeight + 20;
+                    const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - header.offsetHeight + 20;
 
                     if (menuBurger) {
                         if (menuBurger.classList.contains('active')) {
                             numOffClicks++;
-                            menuBurger.classList.remove('active');
-                            menuBody.classList.remove('active');
-                            document.querySelector('header').classList.remove('not-opacity');
+                            removeClass();
                             enable();
                         }
                     }
@@ -187,7 +196,6 @@ function bodyLock() {
     }
     disable();
     body.style.paddingRight = lockPaddingValue;
-    body.classList.add('lock');
 
     unlock = false;
     setTimeout(function () {
@@ -205,7 +213,6 @@ function bodyUnlock() {
         }
         enable();
         body.style.paddingRight = '0px';
-        body.classList.remove('lock');
     }, timeout);
 
     unlock = false;
@@ -261,90 +268,90 @@ function Blur(x) {
 /* Form */
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.form');
-    form.addEventListener('submit', formSend);
+    if (form) {
+        form.addEventListener('submit', formSend);
 
-    async function formSend(e) {
-        e.preventDefault();
+        async function formSend(e) {
+            e.preventDefault();
 
-        let error = formValidate(form);
-        let formData = new FormData(form);
+            let error = formValidate(form);
+            let formData = new FormData(form);
 
-        if (error === 0) {
-            form.classList.add('_sending');
-            let response = await fetch('sendmail.php', {
-                method: 'POST',
-                body: formData
-            });
-            if (response.ok) {
-                let result = await response.json();
-                alert(result.message);
-                form.reset();
-                form.classList.remove('_sending');
+            if (error === 0) {
+                form.classList.add('_sending');
+                let response = await fetch('sendmail.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                if (response.ok) {
+                    let result = await response.json();
+                    alert(result.message);
+                    form.reset();
+                    form.classList.remove('_sending');
+                } else {
+                    alert('Ошибка соединения. Повторите попытку позже');
+                    form.classList.remove('_sending');
+                }
             } else {
-                alert('Ошибка соединения. Повторите попытку позже');
-                form.classList.remove('_sending');
+                alert('Введите обязательные поля корректно!');
             }
-        } else {
-            alert('Введите обязательные поля корректно!');
         }
-    }
 
-    let error = 0;
+        let error = 0;
 
-    function formValidate(form) {
-        let formReq = document.querySelectorAll('.req');
+        function formValidate(form) {
+            let formReq = document.querySelectorAll('.req');
 
-        for (let index = 0; index < formReq.length; index++) {
-            const input = formReq[index];
-            formRemoveError(input);
+            for (let index = 0; index < formReq.length; index++) {
+                const input = formReq[index];
+                formRemoveError(input);
 
-            if (input.classList.contains('email')) {
-                if (emailTest(input)) {
+                if (input.classList.contains('email')) {
+                    if (emailTest(input)) {
+                        formAddError(input);
+                        error++;
+                    }
+                } else if (input.classList.contains('phone')) {
+                    if (phoneTest(input)) {
+                        formAddError(input);
+                        error++;
+                    }
+                } else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
                     formAddError(input);
                     error++;
+                } else {
+                    if (input.value === '') {
+                        formAddError(input);
+                        error++;
+                    }
                 }
-            } else if (input.classList.contains('phone')) {
-                if (phoneTest(input)) {
-                    formAddError(input);
-                    error++;
-                }
-            } else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
+            }
+            return error;
+        }
+        function formAddError(input) {
+            input.parentElement.classList.add('_error');
+            input.classList.add('_error');
+        }
+        function formRemoveError(input) {
+            input.parentElement.classList.remove('_error');
+            input.classList.remove('_error');
+        }
+        function emailTest(input) {
+            return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+        }
+        function phoneTest(input) {
+            if (input.value.length <= 10) {
                 formAddError(input);
                 error++;
-            } else {
-                if (input.value === '') {
-                    formAddError(input);
-                    error++;
-                }
             }
+            return !/^[0-9]+$/.test(input.value);
         }
-        return error;
-    }
-    function formAddError(input) {
-        input.parentElement.classList.add('_error');
-        input.classList.add('_error');
-    }
-    function formRemoveError(input) {
-        input.parentElement.classList.remove('_error');
-        input.classList.remove('_error');
-    }
-    function emailTest(input) {
-        return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
-    }
-    function phoneTest(input) {
-        if (input.value.length <= 10) {
-            formAddError(input);
-            error++;
-        }
-        return !/^[0-9]+$/.test(input.value);
     }
 });
 
 
 /* Opacity Header */
 window.onscroll = function showHeader() {
-    var header = document.querySelector('header');
-
     if (window.pageYOffset > 140) {
         header.classList.add('active__scroll');
     } else {

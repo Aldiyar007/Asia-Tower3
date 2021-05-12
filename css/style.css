@@ -479,7 +479,7 @@ header.not-opacity {
   box-shadow: 0 0 10px red;
 }
 
-form::after {
+.dws-container::after {
   content: '';
   position: absolute;
   top: 0;
@@ -494,7 +494,7 @@ form::after {
   -webkit-transition: 0.5s;
 }
 
-form._sending::after {
+.dws-container._sending::after {
   opacity: 1;
   visibility: visible;
 }

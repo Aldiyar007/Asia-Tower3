@@ -267,7 +267,7 @@ function Blur(x) {
 
 /* Form */
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('.form');
+    const form = document.getElementById('form');
     if (form) {
         form.addEventListener('submit', formSend);
 
@@ -297,9 +297,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        let error = 0;
-
         function formValidate(form) {
+            let error = 0;
             let formReq = document.querySelectorAll('.req');
 
             for (let index = 0; index < formReq.length; index++) {
@@ -336,6 +335,7 @@ document.addEventListener('DOMContentLoaded', function () {
             input.parentElement.classList.remove('_error');
             input.classList.remove('_error');
         }
+
         function emailTest(input) {
             return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
         }

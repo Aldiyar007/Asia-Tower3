@@ -479,7 +479,7 @@ header.not-opacity {
   box-shadow: 0 0 10px red;
 }
 
-.form::after {
+#form::after {
   content: '';
   position: absolute;
   top: 0;
@@ -494,7 +494,7 @@ header.not-opacity {
   -webkit-transition: 0.5s;
 }
 
-.form._sending::after {
+._sending#form::after {
   opacity: 1;
   visibility: visible;
 }

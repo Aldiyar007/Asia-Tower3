@@ -1,0 +1,1073 @@
+@import "_null";
+@import "_mixin";
+
+body {
+  position: relative;
+
+  &.lock {
+    position: relative;
+    overflow: hidden;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0px auto;
+  padding: 0px 10px;
+}
+
+.wrapper {
+  @include flexbox();
+  flex-direction: column;
+  min-height: 100vh;
+}
+.content {
+  padding: 80px 0 0 0;
+  @include flex(1,1,auto);
+  position: relative;
+  flex-direction: column;
+}
+
+a.red {
+  color: #fff;
+  @include transition(.6s);
+
+  &:hover {
+    color: red;
+  }
+}
+
+// Header
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  @include transition(0.5s);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 3;
+  }
+
+  &__body {
+    position: relative;
+    @include flexbox();
+    justify-content: space-between;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    height: 80px;
+    @include alignItems(center);
+  }
+
+  &__list {
+    @include flexbox();
+    position: relative;
+    z-index: 3;
+
+    & li {
+      list-style: none;
+      margin: 0px 0px 0px 20px;
+      padding-top: 5px;
+      position: relative;
+      @include transition(0.5s);
+
+      &:hover::before {
+        content: "";
+        @include scaleX(1);
+        @include transition(.5s);
+      }
+
+      & .active-page {
+        color: #fbff08;
+      }
+
+      &:before {
+        content: "";
+        height: 1px;
+        background: #fff;
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        @include scaleX(0);
+        width: 100%;
+      }
+    }
+  }
+
+  &__link {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 18px;
+    text-decoration: none;
+  }
+  &__logo {
+    @include flex(0,0,200px);
+    overflow: hidden;
+    transform: translateY(-5%);
+    z-index: 3;
+    @include flexbox();
+    @include alignItems(center);
+    position: relative;
+
+    & h1 {
+        padding: 40px 0 0 10px;
+        color: #fff;
+        @include alignItems(center);
+        font-size: 30px;
+        width: 1900px;
+        height: 100px;
+    }
+  }
+  &__burger {
+    display: none;
+  }
+  &.active__scroll {
+    opacity: 0.7;
+    @include transition(0.5s);
+  }
+  &.not-opacity {
+    opacity: 1;
+  }
+}
+
+// Back to top
+.back-to-top {
+  position: fixed;
+  margin-left: 10px;
+  bottom: 200px;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  visibility: hidden;
+  border-color: transparent;
+  border-radius: 50%;
+  background-color: #629460;
+  z-index: 10;
+  @include transition(.2s);
+
+  &.open{
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  &:hover,
+  &:focus {
+    -webkit-filter: brightness(1.5);
+    filter: brightness(1.5);
+    outline: none;
+  }
+  
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include flexbox();
+    @include alignItems(center);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    content: "↑";
+    color: #f5f0f6;
+  }
+}
+
+// Intro
+.intro {
+  position: relative;
+  min-height: 100vh;
+  @include flexbox();
+  flex-direction: column;
+
+  &__body {
+    position: relative;
+    @include flexbox();
+    justify-content: center;
+    z-index: 2;
+    @include flex(1,1,auto);
+    @include alignItems(center);
+    justify-content: center;
+    text-transform: uppercase;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.269);
+  }
+  &__title {
+    @include flex(1,1,auto);
+    @include textAlignCenter();
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: calc(14px + (50 - 14) * ((100vw - 280px) / (1280 - 280)));
+    line-height: 1.1;
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Desc
+.desc {
+  margin-top: -5px;
+  width: 100%;
+  background-color: #20228c;
+  height: auto;
+
+  &__body {
+    @include flexbox();
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 100px 0;
+  }
+  &__text {
+    @include textAlignCenter();
+    max-width: 550px; 
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 20px;
+    line-height: 1.1;
+  }
+}
+
+// Zoom
+.zoom-hover {  
+  cursor: pointer;
+  @include transition(.9s);
+
+  &:hover {
+    @include scale(1.1);
+  }
+}
+
+// Arenda 
+.arenda {
+  padding-top: 40px;
+
+  &__text {
+    @include textAlignCenter();
+  }
+  &__block {
+    @include flexbox();
+    margin-top: 20px;
+    padding-bottom: 20px;
+    @include alignItems(center);
+  }
+  &__item {
+    @include flex(0,0,25%);
+    @include textAlignCenter();
+    margin-bottom: 40px;
+  }
+  &__img {
+    max-width: 230px;
+  }
+}
+
+// Popup
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @include transition(.8s);
+
+  &.open {
+    z-index: 99999999999999999999999999999999999;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  &.open &__content {
+    @include mixTransform(600px, 0px,0%, 0deg);
+    opacity: 1;
+  }
+  
+  &__close {
+    position: relative;
+    width: 30px;
+    height: 15px;
+    z-index: 3;
+    top: -15px;
+    cursor: pointer;
+    float: right;
+    text-decoration: none;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        color: #000;
+        background-color: #000;
+        width: 100%;
+        height: 2px;
+        left: 0;
+    } 
+  
+    &:before {
+        @include rotate(45deg);
+        top: 9px;
+    }
+  
+    &:after {
+      @include rotate(-45deg);
+        bottom: 4px;
+    }
+  }
+  
+  &__body {
+    min-height: 100%;
+    @include flexbox();
+    justify-content: center;
+    @include alignItems(center);
+    padding: 30px 10px;
+    @include transition(.8s);
+  }
+  &__content {
+    background-color: #fff;
+    color: #000;
+    max-width: 800px;
+    padding: 30px;
+    position: relative;
+    min-width: 320px;
+    @include transition(.8s);
+    opacity: 0;
+    @include translate(0px,-100%);
+  }
+  &__title {
+    font-size: 40px;
+    margin: 0px 0px 1em 0px;  
+  }
+  &__img {
+    width: 100%;
+  }
+  &__text {
+    margin-top: 20px;
+  }
+}
+
+// Form
+.dws-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  transform: translateY(525px); 
+  width: 350px;
+  overflow: hidden;
+  @include transition(.5s);
+
+  &:hover {
+    transform: translateY(515px); 
+  }
+}
+
+.toggle-form {
+  @include flexbox();
+  background: #8a36a5;
+  color: #fff;
+  cursor: pointer;
+  margin: 0 auto;
+  @include alignItems(center);
+  justify-content: center;
+  font-size: 24px;
+  padding: 10px 0;
+  border-radius: 8px 8px 0 0;
+  width: 85%;
+
+  &:checked ~ .dws-container {
+    transform: translateY(0); 
+  }
+
+  &[type="checkbox"] {
+    display: none;
+  }
+
+  &  i {
+    position: absolute;
+    top: 4px;
+    left: 40px;
+    @include flexbox();
+    @include alignItems(center);
+    font-size: 40px;
+  }
+}
+
+.form-box {
+  padding: 30px;
+  background: #fff;
+  border: 4px solid #8a36a5;
+}
+
+.input-box {
+  position: relative;
+  margin: 0 0 20px;
+  background: #fff;
+}
+
+.label-text {
+  position: absolute;
+  line-height: 55px;
+  font-size: 15px;
+  color: #a5a5a5;
+  @include transition(.5s);
+
+  &::after {
+    content: "*";
+  }
+}
+
+.focus .label-text {
+  -webkit-transform: translateY(-36px);
+  transform: translateY(-36px);
+  font-size: 14px;
+  color: #d33ebc;
+}
+
+.user-input {
+  position: relative;
+  background: transparent;
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  color: #575454;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #a5a5a5;
+
+  &._error {
+    border-bottom: 1px solid red;
+  }
+}
+
+#checkbox-form._error {
+    -webkit-box-shadow: 0 0 10px red;
+    box-shadow: 0 0 10px red;
+}
+
+#form::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(51, 51, 51, 0.9) url("../img/form/loading.gif") center / 50px no-repeat;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  @include transition(.5s);
+}
+
+._sending#form::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.label-form {
+    & input[type="checkbox"] {
+        @include flexbox();
+    }
+      
+    & span {
+        position: relative;
+        left: 20px;
+        bottom: 15px;
+    }
+}
+
+.button {
+  padding: 8px 18px;
+
+  & {
+    background: #8a36a5;
+    color: #fff;
+    width: 45%;
+    height: 35px;
+    font-size: 18px;
+    border: none;
+    margin-top: 10px;
+    margin-left: 50%;
+    cursor: pointer;
+    @include transition(.5s);
+  }
+
+  &:hover {
+    background: #b33edc;
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+textarea.user-input {
+  resize: none;
+  min-height: 100px;
+  margin-top: 12px;
+}
+
+.personal-doc,
+.personal-doc a {
+  color: #858585;
+  @include transition(.5s);
+}
+
+.personal-doc a:hover {
+    text-decoration: none;
+    color: #b33edc;
+    -webkit-transform: translateX(15px);
+    transform: translateX(15px);
+  }
+
+// Footer
+.footer {
+  background-color: #675fed;
+  padding: 50px 0;
+  position: relative;
+
+  &__list li {
+    max-width: 400px;
+
+    & a {
+        @include transition(.7s);
+        margin-left: 315px;
+        position: relative;
+        text-transform: uppercase;
+        font-size: 13px;
+        display: inline-block;
+      }
+  }
+  
+  &__body {
+    @include flexbox();
+    flex-direction: column;
+  }
+  &__rules a {
+    flex-direction: column;
+    @include transition(.6s);
+    @include flexbox();
+    width: 300px;
+    margin: 0 auto;
+    @include textAlignCenter();
+    justify-content: center;
+    @include alignItems(center);
+    transform: translateY(-50%);
+  }
+  & li {
+    padding-bottom: 5px;
+  }
+  &__link::before {
+    content: "";
+    width: 4px;
+    height: 10px;
+    background: #b2242b;
+    position: absolute;
+    left: -10px;
+    top: 3px;
+  }
+}
+
+// Contact
+.contact {
+  overflow: hidden;
+  min-height: 740px;
+  @include alignItems(center);
+
+  &__content {
+    @include flex(0,0,100%);
+  }
+  &__container {
+    max-width: 1360px; 
+    padding: 0px 20px;
+    @include flexbox();
+    margin: 0px auto;
+    @include alignItems(center);
+  }
+  &__body {
+    @include flexbox();
+    width: 50%;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+  &__item {
+    font-size: 15px;
+    width: 400px;
+    max-width: 550px;
+  }
+  &__title {
+    max-width: 400px;
+    margin: 5px 0 5px 0;
+    color: #ec1a1a;
+    font-size: 20px;
+    font-weight: normal;
+  }
+  &__text {
+    max-width: 300px;
+    font-size: 15px;
+
+    & p {
+        margin-bottom: 9px;
+
+        & a {
+            color: #000;
+        }
+    }
+    & address {
+        margin-bottom: 9px; 
+    }
+  }
+
+  &__img {
+    height: 25px;
+    margin-bottom: 9px;
+    margin-left: 5px;
+  }
+}
+
+.map {
+  max-width: 100%;
+}
+
+// About
+.about {
+  background: url('../img/intro/intro1.jpeg') 0 0 no-repeat;
+  background-size: cover;
+
+  &__title {
+    color: #fff;
+    @include textAlignCenter();
+    padding-top: 45px;
+  }
+  &-bg {
+    background-color: rgba(0, 0, 0, 0.269);
+    width: 100%;
+    font-size: 30px;
+  }
+  &__text {
+    padding: 10px 0 60px;
+  }
+  &__block {
+    margin-top: 10px;
+    max-width: 1060px;
+    font-size: calc(9px + (18 - 9) * ((100vw - 280px) / (1280 - 280)));
+    text-indent: 25px;
+    width: 100%;
+    color: #fff;
+  }
+  &__list {
+    font-weight: normal;
+
+    &::before {
+        content: "✓";
+        margin-right: 15px;
+    }
+  }
+  
+  &__link {
+      @include transition(.8s);
+  }
+}
+
+// Rules
+.rules {
+    .rules__title {
+        margin-bottom: 15px;
+        font-size: 24px;
+        text-transform: uppercase;
+        margin-top: 15px;
+    }
+
+    &-p {
+        font-size: 16px;
+    }
+      
+    &-p a {
+        color: blue;
+    }
+}
+
+.icon {
+  height: 18px; 
+  width: 20px;
+  position: relative;  
+}
+
+// Private Police
+.item__title {
+  margin-top: 18px;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+// Media
+@media (max-width: 2000px) {  
+  // Desc
+  .desc__text {
+    font-size: calc(11px + (20 - 11) * ((100vw - 280px) / (1280 - 280)));
+  }
+}
+@media (max-width: 1030px) {  
+  // About
+  .about__title {
+    font-size: calc(18px + (30 - 18) * ((100vw - 280px) / (1030 - 280)));
+  }
+  
+  // Arenda
+  .arenda__block {
+    flex-direction: column;
+  }
+
+  // Footer
+  footer {
+    margin-top: 70px;
+  }
+}
+
+@media (min-width: 1030px) {  
+  // Contact
+  .contact {
+    @include flexbox();
+    margin-top: 20px;
+
+    &__body {
+        padding: 0px 20px 50px 50px;
+        width: 50%;
+    }
+  }
+
+  .map {
+    padding: 0px 0px 22.5%;
+    @include flex(0,0,calc(((100vw - 40px) * 0.6) + 20px));
+    max-width: 555px;
+    height: 458px;
+    transform: translateX(-102.5%);
+
+    & img {
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: 1175px) { 
+
+  // Footer
+  .footer__list li a {
+    display: none;
+  }
+}
+
+@media (max-width: 1029px) { 
+  // Contact
+  .contact {
+    &__body {
+        margin: 0 auto; 
+    }
+    &__item {
+        margin: auto;
+        @include textAlignCenter();
+    }
+    &__text {
+        margin: auto;
+    }
+  }
+
+  .map {
+    margin-top: 25px;
+    @include textAlignCenter();
+  }
+}
+
+@media (max-device-width: 767px) {
+  // Header
+  .header {
+    &__burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        z-index: 3;
+        top: 5px;
+        margin-right: 40px;
+
+        &::before,
+        &::after {
+            content: "";
+            background-color: #fff;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            left: 0;
+            @include transition(.3s);
+        }
+    
+        & span {
+            position: absolute;
+            background-color: #fff;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 2px;
+            top: 9px;
+            @include transition(.3s);
+        }  
+    
+        &::before {
+            top: 0;
+        }
+        
+        &::after {
+            bottom: 0;
+        }
+
+        &.active span {
+          @include scale(0);
+        }
+        
+        &.active:before {
+            @include rotate(45deg);
+            top: 9px;
+        }
+        
+        &.active:after {
+            @include rotate(-45deg);
+            bottom: 9px;
+        }
+    }
+    
+    
+    &__menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @include transition(.3s);
+        background-color: #000;
+        padding: 75px 0px 0px 0px;
+        overflow: auto;
+    
+        &.active {
+            top: 0;
+        }
+    }
+    
+    &__logo {
+        position: relative;
+        top: 0px;
+    }
+
+    &__list {
+        display: block;
+
+        & li {
+            margin: 10px 0px 20px 0px;
+            @include textAlignCenter();
+            position: relative;
+
+            &:hover:before {
+                content: "";
+                @include scaleX(1);
+                @include transition(.5s);
+            }
+
+            &:before {
+                content: "";
+                height: 1px;
+                background: #fff;
+                position: absolute;
+                left: 0;
+                bottom: -10px;
+                @include scaleX(0);
+                width: 100%;
+            }
+        }
+    }
+    
+    &__link {
+        font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: 585px) {
+  // Form
+  .toggle-form {
+    font-size: 15px;
+
+    & i {
+        position: absolute;
+        top: 7px;
+        left: 40px;
+        font-size: 26px;
+    }
+    &:checked ~ .dws-container {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+  }
+
+  .dws-container {
+    width: 250px;
+    -webkit-transform: translateY(500px);
+    transform: translateY(500px);
+  }
+  .button {
+    margin-left: 20%;
+    width: 100px;
+    position: absolute;
+    bottom: 10px;
+    left: 25px;
+  }
+  .form-box {
+    height: 500px;
+  }
+}
+
+@media (max-width: 465px) {  
+  // Contact
+  .contact {
+    &__body {
+        width: 350px;
+        position: relative;
+    }
+    &__item {
+        @include textAlignCenter();
+    }
+    &__title {
+        font-size: calc(17px + (20 - 17) * ((100vw - 280px) / (465 - 280)));
+    }
+    &__text {
+        margin: 0px auto;
+        font-size: calc(10px + (15 - 10) * ((100vw - 280px) / (465 - 280)));
+    }
+  }
+
+  .map {
+    margin-left: 0;
+    width: 320px;
+    height: 360px;
+
+    & img {
+        position: relative;
+        right: 50px;
+    }
+  }
+}
+
+@media (max-width: 400px) { 
+    // Contact
+    .contact {
+        &__body {
+            width: 100%;
+            margin: auto;
+        }
+        &__container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        &__item {
+            width: 100%;
+            max-width: 200px;
+            margin: auto;
+        } 
+    }
+
+   // Rules
+    .rules{
+        &__title {
+            font-size: calc(16px + (24 - 18) * ((100vw - 280px) / (400 - 280)));
+        }
+        &-p {
+            font-size: calc(13px + (15 - 10) * ((100vw - 280px) / (400 - 280)));
+        }
+    }
+}
+  
+@media (max-width: 345px) {
+  // Header
+  .header {
+    &__burger {
+        display: inline-flex;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 999;
+        top: 1px;
+        margin-right: 0px;
+    }
+
+    &__menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @include transition(.5s);
+        background-color: #000;
+        padding: 75px 0px 0px 0px;
+        overflow: auto;
+    }
+    
+    &__logo {
+        top: -1px;
+        @include flex(0,0,180px);
+    }
+    
+    &__logo h1 {
+        font-size: 25px;
+    }
+  }
+
+  // Contact
+  .contact__item {
+    font-size: 14px;
+  }
+
+  .map {
+    width: 320px;
+    height: 360px;
+
+    & img {
+        right: 100px;
+    }
+  }
+
+  // Arenda
+  .arenda__img {
+    max-width: 180px;
+  }
+}

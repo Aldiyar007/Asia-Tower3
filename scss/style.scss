@@ -399,15 +399,19 @@ a.red {
   &[type="checkbox"] {
     display: none;
   }
+}
 
-  &  i {
-    position: absolute;
-    top: 4px;
-    left: 40px;
-    @include flexbox();
-    @include alignItems(center);
-    font-size: 40px;
-  }
+.toggle-form-question {
+  color: #000;
+  background-color: #fff;
+  font-weight: 900;
+  font-size: 30px;
+  position: absolute;
+  top: 8px;
+  left: 50px; 
+  width: 35px;
+  @include textAlignCenter();
+  border-radius: 50%;
 }
 
 .form-box {

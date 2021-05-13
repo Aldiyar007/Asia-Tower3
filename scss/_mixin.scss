@@ -59,9 +59,13 @@
 }
 
 @mixin textAlignCenter() {
+    -webkit-box-align: center;
+    -webkit-box-align: -moz-center;
+    -webkit-box-align: -webkit-center;
+    -webkit-box-align: -ms-center;
     text-align: -moz-center;
     text-align: -webkit-center;
-    text-align: -ms-center;
+    text-align: -ms-center;    
     text-align: center;
 }
 
@@ -83,4 +87,28 @@
     -webkit-box-flex: $g $sh $b;
     -ms-flex: $g $sh $b;
     flex: $g $sh $b;
+}
+
+@mixin flexDirectionColumn (){
+    -webkit-box-orient: column;
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    -ms-flex-direction: vertical;
+    flex-direction: vertical;
+    flex-direction: column;
+}
+
+@mixin JustifyContentSpaceBetween (){
+    -webkit-box-pack: space-between;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -ms-flex-pack: space-beween;
+    justify-content: justify;
+    justify-content: space-between;
+}
+
+@mixin JustifyContentCenter (){
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }

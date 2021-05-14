@@ -191,6 +191,7 @@ function bodyLock() {
     if (lockPadding.length > 0) {
         for (let index = 0; index < lockPadding.length; index++) {
             const el = lockPadding[index];
+            el.style.transition = '0s';
             el.style.paddingRight = lockPaddingValue;
         }
     }
@@ -208,8 +209,8 @@ function bodyUnlock() {
         if (lockPadding.length > 0) {
             for (let index = 0; index < lockPadding.length; index++) {
                 const el = lockPadding[index];
+                el.style.transition = '0s';
                 el.style.paddingRight = '0px';
-                el.removeAttribute('style');
             }
         }
 
@@ -220,6 +221,11 @@ function bodyUnlock() {
     unlock = false;
     setTimeout(function () {
         unlock = true;
+        for (let index = 0; index < lockPadding.length; index++) {
+            const el = lockPadding[index];
+            el.removeAttribute('style');
+            el.style.transition = '.5s';
+        }
     }, timeout);
 }
 
